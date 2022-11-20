@@ -16,5 +16,13 @@ namespace ProyectoBD1.Clases
         {
             InitializeComponent();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Está seguro que desea cerrar Sesión?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }
