@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,16 +20,8 @@ namespace ProyectoBD1.Clases
             p1.Show();*/
         }
 
-      
-
         private void btnPersonal_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            Personal p1 = new Personal();
-            p1.MdiParent = this;
-            p1.Show();
-           
-=======
             // for (int i = 1; i <= 6; i++)
             // Personal
             if (ValidaVentana("Personal") == false)
@@ -121,7 +112,6 @@ namespace ProyectoBD1.Clases
                 p1.MdiParent = this;
                 p1.Show();
             }
->>>>>>> developer
         }
     }
 }
