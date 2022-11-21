@@ -97,7 +97,7 @@ namespace ProyectoBD1.Clases
 
             try
             {
-                SqlCommand comando = new SqlCommand("select Personas.Nombre1 as Nombre,Personas.Nombre2 as SegundoNombre,Personas.Apellido1 as Apellido,Personas.Apellido2 as SegundoApellido,Permisos.Nombre as Cargo,TipoContratos.NombreContrato,Empleados.Usuario as Usuario,Empleados.ClaveAcceso as Contraseña from Empleados inner join Personas on Empleados.IdPersona = Personas.IdPersona inner join Cargos on Empleados.IdCargo = Cargos.IdCargo inner join Permisos on Cargos.IdPermiso = Permisos.IdPermiso inner join Contratos on Empleados.IdContrato = Contratos.IdContrato inner join TipoContratos on Contratos.IdTipoContrato = TipoContratos.IdContrato where Personas.NumIdentidad = '"+documento+"'", conexionbd.abrirBD());
+                SqlCommand comando = new SqlCommand("select Personas.Nombre1 as Nombre,Personas.Nombre2 as SegundoNombre,Personas.Apellido1 as Apellido,Personas.Apellido2 as SegundoApellido,Permisos.Nombre as Cargo,TipoContratos.NombreContrato,Empleados.Usuario as Usuario,Empleados.ClaveAcceso as Contraseña, Personas.NumIdentidad as Identidad from Empleados inner join Personas on Empleados.IdPersona = Personas.IdPersona inner join Cargos on Empleados.IdCargo = Cargos.IdCargo inner join Permisos on Cargos.IdPermiso = Permisos.IdPermiso inner join Contratos on Empleados.IdContrato = Contratos.IdContrato inner join TipoContratos on Contratos.IdTipoContrato = TipoContratos.IdContrato where Personas.NumIdentidad = '" + documento+"'", conexionbd.abrirBD());
                 SqlDataReader dr = comando.ExecuteReader();
                 Persona pr = new Persona();
                 if (dr.Read())
@@ -202,6 +202,7 @@ namespace ProyectoBD1.Clases
                 em.apellido2 = txtA2.Text;
                 if (crearPersona(em))
                 {
+
                     idEmpleado(em.identidad);
                 }
                 else
@@ -235,7 +236,7 @@ namespace ProyectoBD1.Clases
                 }
                 else
                 {
-                    MessageBox.Show("No funciona parse");
+                    MessageBox.Show("No existe el documento");
                 }
               
             }catch (Exception e)
@@ -396,12 +397,16 @@ namespace ProyectoBD1.Clases
             eliminarEmpleado(txtDocumento1.Text);
         }
 
+
+        bool consultado = false;
+
         private void btnConsulta_Click(object sender, EventArgs e)
         {
             Persona pr = consultar(txtDocumento1.Text);
             if( pr == null)
             {
                 MessageBox.Show("No existe el empleado con documento: " + txtDocumento1.Text);
+                consultado = false;
             }
             else
             {
@@ -413,9 +418,72 @@ namespace ProyectoBD1.Clases
                 cbContrato.Text = pr.contrato;
                 txtUser.Text = pr.usuario;
                 txtPass.Text = pr.contraseña;
+                consultado = true;
 
             }
                
+        }
+
+        private void actualizarEmpleado (string documento, string usuario, string pass, int cargo, int contrato)
+        {
+            Conexion conectarbd = new Conexion();
+
+            try
+            {
+                SqlCommand comando = new SqlCommand("update Empleados set IdCargo = "+cargo+", IdContrato = "+contrato+", Usuario = '"+usuario+"' , ClaveAcceso = '"+pass+"' from Empleados inner join Personas on Empleados.IdPersona = Personas.IdPersona where Personas.NumIdentidad = '"+documento+"'", conectarbd.abrirBD());
+                int cantidad = comando.ExecuteNonQuery();
+                if (cantidad == 1)
+                {
+                    MessageBox.Show("Empleado actualizado correctamente");
+                    llenarGrid();
+                    consultado = false;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontro el empleado");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                conectarbd.cerrar();
+            }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            if( consultado == false)
+            {
+                MessageBox.Show("debe consultar antes de actualizar");
+            }
+            else
+            {
+                if(cbCargo.Text == "Administrador")
+                {
+                    if(cbContrato.Text == "Permanente")
+                    {
+                        actualizarEmpleado(txtDocumento1.Text, txtUser.Text, txtPass.Text, 1, 1);
+                    }
+                    else
+                    {
+                        actualizarEmpleado(txtDocumento1.Text, txtUser.Text, txtPass.Text, 1, 2);
+                    }
+                }
+                else
+                {
+                    if (cbContrato.Text == "Permanente")
+                    {
+                        actualizarEmpleado(txtDocumento1.Text, txtUser.Text, txtPass.Text,2,1);
+                    }
+                    else
+                    {
+                        actualizarEmpleado(txtDocumento1.Text, txtUser.Text, txtPass.Text, 2, 2);
+                    }
+                }
+            }
         }
     }
 }
