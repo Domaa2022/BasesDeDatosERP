@@ -42,6 +42,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbSucursalP = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -94,6 +95,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.lbSucursalP);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -238,6 +240,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // lbSucursalP
+            // 
+            this.lbSucursalP.AutoSize = true;
+            this.lbSucursalP.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lbSucursalP.Location = new System.Drawing.Point(169, 42);
+            this.lbSucursalP.Name = "lbSucursalP";
+            this.lbSucursalP.Size = new System.Drawing.Size(35, 13);
+            this.lbSucursalP.TabIndex = 4;
+            this.lbSucursalP.Text = "label1";
+            // 
             // MenuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,6 +263,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuAdmin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MenuAdmin_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -277,5 +290,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Label lbSucursalP;
     }
 }

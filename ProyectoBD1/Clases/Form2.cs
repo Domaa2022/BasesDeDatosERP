@@ -37,6 +37,7 @@ namespace ProyectoBD1.Clases
                     if (dt.Rows[0][3].ToString() == "Administrador") {
                         MessageBox.Show("Bienvenido Administrador", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MenuAdmin admin1 = new MenuAdmin();
+                        admin1.lbSucursalP.Text = lbSucursal.Text;
                         admin1.Show();
                     }
                     else if (dt.Rows[0][3].ToString() == "Cajero") {

@@ -48,8 +48,9 @@ namespace ProyectoBD1
             FormularioInicioSesion.lbSucursal.Text = cbxSucursales.Text;
             FormularioInicioSesion.Show();
             
-            
-            
+           
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)

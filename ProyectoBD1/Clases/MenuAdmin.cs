@@ -27,6 +27,7 @@ namespace ProyectoBD1.Clases
             if (ValidaVentana("Personal") == false)
             {
                 Personal p1 = new Personal();
+                p1.lbSucursal1.Text = lbSucursalP.Text; 
                 p1.MdiParent = this;
                 p1.Show();
             }
@@ -112,6 +113,11 @@ namespace ProyectoBD1.Clases
                 p1.MdiParent = this;
                 p1.Show();
             }
+        }
+
+        private void MenuAdmin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
