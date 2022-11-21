@@ -24,5 +24,42 @@ namespace ProyectoBD1.Clases
                 this.Close();
             }
         }
+
+        bool ValidaVentana(string nombreForm)
+        {
+            foreach (var form_hijo in this.MdiChildren)
+            {
+                if (form_hijo.Text == nombreForm)
+                {
+                    form_hijo.BringToFront();
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //ventas
+            if (ValidaVentana("Ventas") == false)
+            {
+                Ventas v1 = new Ventas();
+                v1.MdiParent = this;
+                v1.Show();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //productos
+            if (ValidaVentana("Productos") == false)
+            {
+                Productos p1 = new Productos();
+                p1.MdiParent = this;
+                p1.Show();
+            }
+
+        }
     }
 }
