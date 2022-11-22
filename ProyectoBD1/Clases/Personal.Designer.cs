@@ -180,7 +180,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(618, 57);
+            this.groupBox3.Size = new System.Drawing.Size(634, 57);
             this.groupBox3.TabIndex = 51;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Acceso";
@@ -238,7 +238,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(618, 57);
+            this.groupBox2.Size = new System.Drawing.Size(634, 57);
             this.groupBox2.TabIndex = 50;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contrato";
@@ -274,7 +274,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(618, 104);
+            this.groupBox1.Size = new System.Drawing.Size(634, 104);
             this.groupBox1.TabIndex = 49;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Puesto Laboral";
@@ -336,7 +336,7 @@
             this.gpbxPersonal.Margin = new System.Windows.Forms.Padding(2);
             this.gpbxPersonal.Name = "gpbxPersonal";
             this.gpbxPersonal.Padding = new System.Windows.Forms.Padding(2);
-            this.gpbxPersonal.Size = new System.Drawing.Size(618, 122);
+            this.gpbxPersonal.Size = new System.Drawing.Size(634, 122);
             this.gpbxPersonal.TabIndex = 48;
             this.gpbxPersonal.TabStop = false;
             this.gpbxPersonal.Text = "Información Personal";
@@ -528,7 +528,7 @@
             this.FechaFinalizacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.FechaFinalizacion.Location = new System.Drawing.Point(530, 27);
             this.FechaFinalizacion.Name = "FechaFinalizacion";
-            this.FechaFinalizacion.Size = new System.Drawing.Size(83, 20);
+            this.FechaFinalizacion.Size = new System.Drawing.Size(99, 20);
             this.FechaFinalizacion.TabIndex = 44;
             // 
             // Personal
