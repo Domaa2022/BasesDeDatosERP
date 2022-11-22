@@ -24,7 +24,7 @@ namespace ProyectoBD1.Clases
             try
             {
                 
-                SqlCommand comando = new SqlCommand("select Empleados.IdSucursal, Empleados.Usuario, Empleados.ClaveAcceso , Permisos.Nombre from Empleados inner join Cargos on Empleados.IdCargo = Cargos.IdCargo inner join Permisos on Cargos.idPermiso = Permisos.IdPermiso Where Empleados.IdSucursal = @sucursal and Empleados.Usuario = @usuario and Empleados.ClaveAcceso = @pas ", conexionbd.abrirBD());
+                SqlCommand comando = new SqlCommand("select Empleados.IdSucursal, Empleados.Usuario, Empleados.ClaveAcceso , Permisos.Nombre, Empleados.Estado from Empleados inner join Cargos on Empleados.IdCargo = Cargos.IdCargo inner join Permisos on Cargos.idPermiso = Permisos.IdPermiso Where Empleados.IdSucursal = @sucursal and Empleados.Usuario = @usuario and Empleados.ClaveAcceso = @pas ", conexionbd.abrirBD());
                 comando.Parameters.AddWithValue("sucursal", sucursal);
                 comando.Parameters.AddWithValue("usuario", usuario);
                 comando.Parameters.AddWithValue("pas", contraseña);
@@ -34,19 +34,29 @@ namespace ProyectoBD1.Clases
 
                 if(dt.Rows.Count == 1)
                 {
-                    if (dt.Rows[0][3].ToString() == "Administrador") {
-                        MessageBox.Show("Bienvenido Administrador", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MenuAdmin admin1 = new MenuAdmin();
-                        admin1.lbSucursalP.Text = lbSucursal.Text;
-                        admin1.Show();
-                        this.Close();
+                    if(   dt.Rows[0][4].ToString() == "True"  ){
+                        if (dt.Rows[0][3].ToString() == "Administrador")
+                        {
+                            MessageBox.Show("Bienvenido Administrador", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MenuAdmin admin1 = new MenuAdmin();
+                            admin1.lbSucursalP.Text = lbSucursal.Text;
+                            admin1.Show();
+                            this.Close();
+                        }
+                        else if (dt.Rows[0][3].ToString() == "Cajero")
+                        {
+                            MessageBox.Show("Bienvenido Cajero", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MenuCajero cajero1 = new MenuCajero();
+                            cajero1.Show();
+                            this.Close();
+                        }
+
                     }
-                    else if (dt.Rows[0][3].ToString() == "Cajero") {
-                        MessageBox.Show("Bienvenido Cajero", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MenuCajero cajero1 = new MenuCajero();
-                        cajero1.Show();
-                        this.Close();
+                    else
+                    {
+                        MessageBox.Show("Empleado no activo");
                     }
+                   
                     
                 }
                 else

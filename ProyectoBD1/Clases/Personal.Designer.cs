@@ -63,7 +63,10 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.dgvEmpleado = new System.Windows.Forms.DataGridView();
             this.btnInsertar = new System.Windows.Forms.Button();
-            this.lbIDpersona = new System.Windows.Forms.Label();
+            this.FechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.FechaFinalizacion = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.txtIdentidadInsert.SuspendLayout();
@@ -177,7 +180,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(515, 57);
+            this.groupBox3.Size = new System.Drawing.Size(618, 57);
             this.groupBox3.TabIndex = 51;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Acceso";
@@ -224,6 +227,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.FechaFinalizacion);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.FechaInicio);
             this.groupBox2.Controls.Add(this.cbContrato);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.ForeColor = System.Drawing.Color.DarkSlateBlue;
@@ -231,7 +238,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(515, 57);
+            this.groupBox2.Size = new System.Drawing.Size(618, 57);
             this.groupBox2.TabIndex = 50;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contrato";
@@ -239,7 +246,7 @@
             // cbContrato
             // 
             this.cbContrato.FormattingEnabled = true;
-            this.cbContrato.Location = new System.Drawing.Point(127, 27);
+            this.cbContrato.Location = new System.Drawing.Point(91, 27);
             this.cbContrato.Margin = new System.Windows.Forms.Padding(2);
             this.cbContrato.Name = "cbContrato";
             this.cbContrato.Size = new System.Drawing.Size(147, 22);
@@ -258,7 +265,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lbIDpersona);
             this.groupBox1.Controls.Add(this.lbSucursal1);
             this.groupBox1.Controls.Add(this.cbCargo);
             this.groupBox1.Controls.Add(this.label10);
@@ -268,7 +274,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(515, 104);
+            this.groupBox1.Size = new System.Drawing.Size(618, 104);
             this.groupBox1.TabIndex = 49;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Puesto Laboral";
@@ -330,7 +336,7 @@
             this.gpbxPersonal.Margin = new System.Windows.Forms.Padding(2);
             this.gpbxPersonal.Name = "gpbxPersonal";
             this.gpbxPersonal.Padding = new System.Windows.Forms.Padding(2);
-            this.gpbxPersonal.Size = new System.Drawing.Size(515, 122);
+            this.gpbxPersonal.Size = new System.Drawing.Size(618, 122);
             this.gpbxPersonal.TabIndex = 48;
             this.gpbxPersonal.TabStop = false;
             this.gpbxPersonal.Text = "Información Personal";
@@ -466,11 +472,11 @@
             // dgvEmpleado
             // 
             this.dgvEmpleado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleado.Location = new System.Drawing.Point(535, 11);
+            this.dgvEmpleado.Location = new System.Drawing.Point(643, 11);
             this.dgvEmpleado.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmpleado.Name = "dgvEmpleado";
             this.dgvEmpleado.RowTemplate.Height = 28;
-            this.dgvEmpleado.Size = new System.Drawing.Size(361, 368);
+            this.dgvEmpleado.Size = new System.Drawing.Size(256, 368);
             this.dgvEmpleado.TabIndex = 45;
             // 
             // btnInsertar
@@ -487,14 +493,43 @@
             this.btnInsertar.UseVisualStyleBackColor = false;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
-            // lbIDpersona
+            // FechaInicio
             // 
-            this.lbIDpersona.AutoSize = true;
-            this.lbIDpersona.Location = new System.Drawing.Point(314, 33);
-            this.lbIDpersona.Name = "lbIDpersona";
-            this.lbIDpersona.Size = new System.Drawing.Size(50, 14);
-            this.lbIDpersona.TabIndex = 43;
-            this.lbIDpersona.Text = "label16";
+            this.FechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.FechaInicio.Location = new System.Drawing.Point(324, 27);
+            this.FechaInicio.Name = "FechaInicio";
+            this.FechaInicio.Size = new System.Drawing.Size(100, 20);
+            this.FechaInicio.TabIndex = 41;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(251, 29);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 15);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Fecha Inicio:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(431, 29);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 15);
+            this.label4.TabIndex = 43;
+            this.label4.Text = "Fecha Finalizacion:";
+            // 
+            // FechaFinalizacion
+            // 
+            this.FechaFinalizacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.FechaFinalizacion.Location = new System.Drawing.Point(530, 27);
+            this.FechaFinalizacion.Name = "FechaFinalizacion";
+            this.FechaFinalizacion.Size = new System.Drawing.Size(83, 20);
+            this.FechaFinalizacion.TabIndex = 44;
             // 
             // Personal
             // 
@@ -563,6 +598,9 @@
         private System.Windows.Forms.DataGridView dgvEmpleado;
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.Button btnConsulta;
-        public System.Windows.Forms.Label lbIDpersona;
+        private System.Windows.Forms.DateTimePicker FechaFinalizacion;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker FechaInicio;
     }
 }

@@ -87,6 +87,9 @@ namespace ProyectoBD1.Clases
             public string cargo;
             public string usuario;
             public string contraseña;
+            public string fechaInicio;
+            public string fechaFinalizacion;
+
 
         }
 
@@ -97,7 +100,7 @@ namespace ProyectoBD1.Clases
 
             try
             {
-                SqlCommand comando = new SqlCommand("select Personas.Nombre1 as Nombre,Personas.Nombre2 as SegundoNombre,Personas.Apellido1 as Apellido,Personas.Apellido2 as SegundoApellido,Permisos.Nombre as Cargo,TipoContratos.NombreContrato,Empleados.Usuario as Usuario,Empleados.ClaveAcceso as Contraseña, Personas.NumIdentidad as Identidad from Empleados inner join Personas on Empleados.IdPersona = Personas.IdPersona inner join Cargos on Empleados.IdCargo = Cargos.IdCargo inner join Permisos on Cargos.IdPermiso = Permisos.IdPermiso inner join Contratos on Empleados.IdContrato = Contratos.IdContrato inner join TipoContratos on Contratos.IdTipoContrato = TipoContratos.IdContrato where Personas.NumIdentidad = '" + documento+"'", conexionbd.abrirBD());
+                SqlCommand comando = new SqlCommand("select Contratos.InicioContrato as FechaInicio , Contratos.FinalizaContrato as FechaFinalizacion,  Personas.Nombre1 as Nombre,Personas.Nombre2 as SegundoNombre,Personas.Apellido1 as Apellido,Personas.Apellido2 as SegundoApellido,Permisos.Nombre as Cargo,TipoContratos.NombreContrato,Empleados.Usuario as Usuario,Empleados.ClaveAcceso as Contraseña, Personas.NumIdentidad as Identidad from Empleados inner join Personas on Empleados.IdPersona = Personas.IdPersona inner join Cargos on Empleados.IdCargo = Cargos.IdCargo inner join Permisos on Cargos.IdPermiso = Permisos.IdPermiso inner join Contratos on Empleados.IdContrato = Contratos.IdContrato inner join TipoContratos on Contratos.IdTipoContrato = TipoContratos.IdContrato where Personas.NumIdentidad = '" + documento+"'", conexionbd.abrirBD());
                 SqlDataReader dr = comando.ExecuteReader();
                 Persona pr = new Persona();
                 if (dr.Read())
@@ -111,6 +114,8 @@ namespace ProyectoBD1.Clases
                     pr.cargo = dr["Cargo"].ToString();
                     pr.usuario = dr["Usuario"].ToString();
                     pr.contraseña = dr["Contraseña"].ToString();
+                    pr.fechaInicio = dr["FechaInicio"].ToString();
+                    pr.fechaFinalizacion = dr["FechaFinalizacion"].ToString();
 
                     return pr;
                 }
@@ -148,11 +153,12 @@ namespace ProyectoBD1.Clases
         public void llenarContrato()
         {
             Conexion conexionbd = new Conexion();
-            SqlCommand comando = new SqlCommand("select Contratos.IdContrato, TipoContratos.NombreContrato from Contratos inner join TipoContratos on Contratos.IdTipoContrato = TipoContratos.IdContrato", conexionbd.abrirBD());
+            SqlCommand comando = new SqlCommand("select *, Contratos.IdContrato, TipoContratos.NombreContrato from Contratos inner join TipoContratos on Contratos.IdTipoContrato = TipoContratos.IdContrato", conexionbd.abrirBD());
             SqlDataReader contrato = comando.ExecuteReader();
             while (contrato.Read())
             {
                 cbContrato.Items.Add(contrato["NombreContrato"].ToString());
+                
             }
             conexionbd.cerrar();
         }
@@ -185,7 +191,18 @@ namespace ProyectoBD1.Clases
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            insercionPersona();
+            try
+            {
+                insercionPersona();
+            }catch(Exception em)
+            {
+                MessageBox.Show(em.ToString());
+            }
+            finally
+            {
+                eliminarRegistros();
+            }
+            
             
         }
 
@@ -257,16 +274,19 @@ namespace ProyectoBD1.Clases
                 {
                     try
                     {
-                        SqlCommand comando = new SqlCommand("insert into Empleados values (" + numPersona + ",1," + lbSucursal1.Text + ",1,'" + txtUser.Text + "','" + txtPass.Text + "')",conectarbd.abrirBD());
+                        SqlCommand comando = new SqlCommand("insert into Empleados values (" + numPersona + ",1," + lbSucursal1.Text + ",1,'" + txtUser.Text + "','" + txtPass.Text + "', 1)",conectarbd.abrirBD());
                         int cantidad = comando.ExecuteNonQuery();
                         if (cantidad == 1)
                         {
                             MessageBox.Show("Empleado Creado");
+                            eliminarRegistros();
                             llenarGrid();
+                            
                         }
                         else
                         {
-                            MessageBox.Show("No se pudo Crear el empleado"); 
+                            MessageBox.Show("No se pudo Crear el empleado");
+                            eliminarRegistros();
                         }
                     }catch(Exception e)
                     {
@@ -282,7 +302,7 @@ namespace ProyectoBD1.Clases
                 {
                     try
                     {
-                        SqlCommand comando = new SqlCommand("insert into Empleados values (" + numPersona + ",1," + lbSucursal1.Text + ",2,'" + txtUser.Text + "','" + txtPass.Text + "')", conectarbd.abrirBD());
+                        SqlCommand comando = new SqlCommand("insert into Empleados values (" + numPersona + ",1," + lbSucursal1.Text + ",2,'" + txtUser.Text + "','" + txtPass.Text + "',1)", conectarbd.abrirBD());
                         int cantidad = comando.ExecuteNonQuery();
                         if (cantidad == 1)
                         {
@@ -311,7 +331,7 @@ namespace ProyectoBD1.Clases
                 {
                     try
                     {
-                        SqlCommand comando = new SqlCommand("insert into Empleados values (" + numPersona + ",2," + lbSucursal1.Text + ",1,'" + txtUser.Text + "','" + txtPass.Text + "')", conectarbd.abrirBD());
+                        SqlCommand comando = new SqlCommand("insert into Empleados values (" + numPersona + ",2," + lbSucursal1.Text + ",1,'" + txtUser.Text + "','" + txtPass.Text + "',1)", conectarbd.abrirBD());
                         int cantidad = comando.ExecuteNonQuery();
                         if (cantidad == 1)
                         {
@@ -337,7 +357,7 @@ namespace ProyectoBD1.Clases
                 {
                     try
                     {
-                        SqlCommand comando = new SqlCommand("insert into Empleados values (" + numPersona + ",2," + lbSucursal1.Text + ",2,'" + txtUser.Text + "','" + txtPass.Text + "')", conectarbd.abrirBD());
+                        SqlCommand comando = new SqlCommand("insert into Empleados values (" + numPersona + ",2," + lbSucursal1.Text + ",2,'" + txtUser.Text + "','" + txtPass.Text + "',1)", conectarbd.abrirBD());
                         int cantidad = comando.ExecuteNonQuery();
                         if (cantidad == 1)
                         {
@@ -370,16 +390,18 @@ namespace ProyectoBD1.Clases
 
             try
             {
-                SqlCommand comando = new SqlCommand("delete from Empleados from Empleados inner join Personas on Empleados.IdPersona = Personas.IdPersona where Personas.NumIdentidad = '"+numIdentidad+"'", conectarbd.abrirBD());
+                SqlCommand comando = new SqlCommand("update Empleados set Estado = 0 from Empleados inner join Personas on Empleados.IdPersona = Personas.IdPersona where Personas.NumIdentidad = '"+numIdentidad+"'", conectarbd.abrirBD());
                 int cantidad = comando.ExecuteNonQuery();
                 if(cantidad == 1)
                 {
                     MessageBox.Show("Empleado eliminado correctamente");
                     llenarGrid();
+                    eliminarRegistros();
                 }
                 else
                 {
                     MessageBox.Show("Identidad no encontrada");
+                    eliminarRegistros();
                 }
 
             }catch (Exception e)
@@ -418,6 +440,8 @@ namespace ProyectoBD1.Clases
                 cbContrato.Text = pr.contrato;
                 txtUser.Text = pr.usuario;
                 txtPass.Text = pr.contraseña;
+                FechaInicio.Text = pr.fechaInicio;
+                FechaFinalizacion.Text = pr.fechaFinalizacion;
                 consultado = true;
 
             }
@@ -436,11 +460,13 @@ namespace ProyectoBD1.Clases
                 {
                     MessageBox.Show("Empleado actualizado correctamente");
                     llenarGrid();
+                    eliminarRegistros();
                     consultado = false;
                 }
                 else
                 {
                     MessageBox.Show("No se encontro el empleado");
+                    eliminarRegistros();
                 }
             }
             catch (Exception e)
@@ -484,6 +510,19 @@ namespace ProyectoBD1.Clases
                     }
                 }
             }
+        }
+
+        private void eliminarRegistros()
+        {
+            txtDocumento1.Text = "";
+            txtFirstName.Text = "";
+            txtSecondName.Text = "";
+            txtA.Text = "";
+            txtA2.Text = "";
+            txtUser.Text = "";
+            txtPass.Text = "";
+            cbCargo.Text = "";
+            cbContrato.Text = "";
         }
     }
 }
