@@ -38,6 +38,7 @@
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,7 +118,7 @@
             this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciarSesion.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarSesion.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnIniciarSesion.Location = new System.Drawing.Point(126, 258);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(41, 258);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(137, 31);
             this.btnIniciarSesion.TabIndex = 8;
@@ -146,6 +147,20 @@
             this.panel1.Size = new System.Drawing.Size(389, 36);
             this.panel1.TabIndex = 10;
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button1.Location = new System.Drawing.Point(196, 258);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(152, 31);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Cambiar Sucursal";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form2
             // 
             this.AcceptButton = this.btnIniciarSesion;
@@ -153,6 +168,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(389, 311);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnIniciarSesion);
             this.Controls.Add(this.txtcontraseña);
@@ -184,5 +200,6 @@
         private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }

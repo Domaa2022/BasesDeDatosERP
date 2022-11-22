@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lbSucursalP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbSucursalP = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -103,6 +103,16 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(220, 74);
             this.panel4.TabIndex = 8;
+            // 
+            // lbSucursalP
+            // 
+            this.lbSucursalP.AutoSize = true;
+            this.lbSucursalP.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lbSucursalP.Location = new System.Drawing.Point(169, 42);
+            this.lbSucursalP.Name = "lbSucursalP";
+            this.lbSucursalP.Size = new System.Drawing.Size(35, 13);
+            this.lbSucursalP.TabIndex = 4;
+            this.lbSucursalP.Text = "label1";
             // 
             // label4
             // 
@@ -202,6 +212,7 @@
             this.btnPersonal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPersonal.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPersonal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPersonal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPersonal.Location = new System.Drawing.Point(0, 91);
             this.btnPersonal.Name = "btnPersonal";
             this.btnPersonal.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -226,11 +237,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Georgia", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(36, 70);
+            this.label2.Location = new System.Drawing.Point(42, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 18);
+            this.label2.Size = new System.Drawing.Size(137, 18);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Nombre Empresa";
+            this.label2.Text = "COSMO AUTOS";
             // 
             // pictureBox1
             // 
@@ -239,16 +250,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(83, 43);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // lbSucursalP
-            // 
-            this.lbSucursalP.AutoSize = true;
-            this.lbSucursalP.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.lbSucursalP.Location = new System.Drawing.Point(169, 42);
-            this.lbSucursalP.Name = "lbSucursalP";
-            this.lbSucursalP.Size = new System.Drawing.Size(35, 13);
-            this.lbSucursalP.TabIndex = 4;
-            this.lbSucursalP.Text = "label1";
             // 
             // MenuAdmin
             // 

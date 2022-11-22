@@ -17,6 +17,7 @@ namespace ProyectoBD1
         public Form1()
         {
             InitializeComponent();
+       
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -27,6 +28,7 @@ namespace ProyectoBD1
             while (sucursal.Read())
             {
                 cbxSucursales.Items.Add(sucursal["IdSucursal"].ToString());
+                cbxSucursales.SelectedIndex = 0;
             }
           
             conexionbd.cerrar();
