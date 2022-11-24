@@ -24,17 +24,25 @@ namespace ProyectoBD1.Clases
             try
             {
 
-                SqlCommand comando = new SqlCommand("select Empleados.IdSucursal, Empleados.Usuario, Empleados.ClaveAcceso , Permisos.Nombre, Empleados.Estado from Empleados inner join Cargos on Empleados.IdCargo = Cargos.IdCargo inner join Permisos on Cargos.idPermiso = Permisos.IdPermiso Where Empleados.IdSucursal = @sucursal and Empleados.Usuario = @usuario and Empleados.ClaveAcceso = @pas ", conexionbd.abrirBD());
+                SqlCommand comando = new SqlCommand("select Empleados.IdSucursal, Empleados.Usuario, Empleados.ClaveAcceso , Permisos.Nombre, Empleados.Estado  from Empleados inner join Cargos on Empleados.IdCargo = Cargos.IdCargo inner join Permisos on Cargos.idPermiso = Permisos.IdPermiso Where Empleados.IdSucursal = @sucursal and Empleados.Usuario = @usuario and CONVERT(varchar(max), DECRYPTBYPASSPHRASE('password',Empleados.ClaveAcceso)) = @pas ", conexionbd.abrirBD());
                 comando.Parameters.AddWithValue("sucursal", sucursal);
                 comando.Parameters.AddWithValue("usuario", usuario);
                 comando.Parameters.AddWithValue("pas", contraseña);
                 SqlDataAdapter sda = new SqlDataAdapter(comando);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
-
-
              
                     if (dt.Rows.Count == 1)
+                    {
+
+                        if(contraseña == "1234")
+                        {
+                        this.Close();
+                        NewPass n1 = new NewPass();
+                        n1.lbUsuarioNuevo.Text = usuario;
+                        n1.Show();
+                        }
+                    else
                     {
                         if (dt.Rows[0][4].ToString() == "True")
                         {
@@ -67,6 +75,9 @@ namespace ProyectoBD1.Clases
 
 
                     }
+
+                    }
+                        
                     else
                     {
                         MessageBox.Show("Usuario o Contraseña Incorrecta", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -77,11 +88,7 @@ namespace ProyectoBD1.Clases
 
                     }
 
-                }
-            
-
-
-            catch (Exception e)
+                }catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -94,21 +101,10 @@ namespace ProyectoBD1.Clases
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            //Console.Write("CONTRA: " + txtcontraseña.Text);
-            if (txtcontraseña.Text == "1234")
-            {
-                this.Close();
-                NewPass n1 = new NewPass();
-                n1.Show();
-             
-               
-            }
-            else
-            {
                 login(lbSucursal.Text, txtNombre.Text, txtcontraseña.Text);
-            }
 
-        }
+            
+         }
 
         private void button1_Click(object sender, EventArgs e)
         {

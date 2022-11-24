@@ -158,7 +158,7 @@ namespace ProyectoBD1.Clases
                 cbCargo.Text = pr.cargo;
                 cbContrato.Text = pr.contrato;
                 txtUser.Text = pr.usuario;
-                txtPass.Text = pr.contraseña;
+                
                 FechaInicio.Text = pr.fechaInicio;
                 FechaFinalizacion.Text = pr.fechaFinalizacion;
                 consultado = true;
@@ -291,6 +291,8 @@ namespace ProyectoBD1.Clases
 
         private void crearEmpleado(string numPersona)
         {
+            string fecha = FechaInicio.Value.Month + "-" + FechaInicio.Value.Day + "-" + FechaInicio.Value.Year;
+            string fechaF = FechaFinalizacion.Value.Month + "-" + FechaFinalizacion.Value.Day + "-" + FechaFinalizacion.Value.Year;
             Conexion conectarbd = new Conexion();
             if (cbCargo.Text == "Administrador")
             {
@@ -298,7 +300,11 @@ namespace ProyectoBD1.Clases
                 {
                     try
                     {
-                        SqlCommand comando = new SqlCommand("insert into Empleados values (" + numPersona + ",1," + lbSucursal1.Text + ",1,'" + txtUser.Text + "','" + txtPass.Text + "', 1, '" + FechaInicio.Value.ToString() + "', '" + FechaFinalizacion.Value.ToString() + "')", conectarbd.abrirBD());
+
+                        
+
+
+                        SqlCommand comando = new SqlCommand("exec RegistrarUsuario " + numPersona + ",1," + lbSucursal1.Text + ", 1 ,'" + txtUser.Text + "','1234',1,'" + fechaF + "','" + fechaF + "'", conectarbd.abrirBD());
                         int cantidad = comando.ExecuteNonQuery();
                         if (cantidad == 1)
                         {
@@ -329,7 +335,7 @@ namespace ProyectoBD1.Clases
                     {
 
 
-                        SqlCommand comando = new SqlCommand("insert into Empleados values (" + numPersona + ",1," + lbSucursal1.Text + ",2,'" + txtUser.Text + "','" + txtPass.Text + "',1 , '" + FechaInicio.Value.ToString() + "', '" + FechaFinalizacion.Value.ToString() + "')", conectarbd.abrirBD());
+                        SqlCommand comando = new SqlCommand("exec RegistrarUsuario " + numPersona + ",1," + lbSucursal1.Text + ", 2 ,'" + txtUser.Text + "','1234',1,'" + fechaF + "','" + fechaF + "'", conectarbd.abrirBD());
                         int cantidad = comando.ExecuteNonQuery();
                         if (cantidad == 1)
                         {
@@ -358,7 +364,7 @@ namespace ProyectoBD1.Clases
                 {
                     try
                     {
-                        SqlCommand comando = new SqlCommand("insert into Empleados values (" + numPersona + ",2," + lbSucursal1.Text + ",1,'" + txtUser.Text + "','" + txtPass.Text + "',1 ,'" + FechaInicio.Value.ToString() + "', '" + FechaFinalizacion.Value.ToString() + "')", conectarbd.abrirBD());
+                        SqlCommand comando = new SqlCommand("exec RegistrarUsuario " + numPersona + ",2," + lbSucursal1.Text + ", 1 ,'" + txtUser.Text + "','1234',1,'" + fechaF + "','" + fechaF + "'", conectarbd.abrirBD());
                         int cantidad = comando.ExecuteNonQuery();
                         if (cantidad == 1)
                         {
@@ -384,7 +390,7 @@ namespace ProyectoBD1.Clases
                 {
                     try
                     {
-                        SqlCommand comando = new SqlCommand("insert into Empleados values (" + numPersona + ",2," + lbSucursal1.Text + ",2,'" + txtUser.Text + "','" + txtPass.Text + "',1 , '" + FechaInicio.Value.ToString() + "', '" + FechaFinalizacion.Value.ToString() + "')", conectarbd.abrirBD());
+                        SqlCommand comando = new SqlCommand("exec RegistrarUsuario " + numPersona + ",2," + lbSucursal1.Text + ", 2 ,'" + txtUser.Text + "','1234',1,'" + fechaF + "','" + fechaF + "'", conectarbd.abrirBD());
                         int cantidad = comando.ExecuteNonQuery();
                         if (cantidad == 1)
                         {
@@ -469,7 +475,8 @@ namespace ProyectoBD1.Clases
 
        // ACTUALIZACION DE EMPLEADO
 
-        private void actualizarEmpleado (string documento, string usuario, string pass, int cargo, int contrato)
+        
+        private void actualizarEmpleado (string documento, string usuario, int cargo, int contrato)
         {
             Conexion conectarbd = new Conexion();
 
@@ -477,7 +484,7 @@ namespace ProyectoBD1.Clases
             {
                 string fecha = FechaInicio.Value.Month + "-" + FechaInicio.Value.Day + "-" + FechaInicio.Value.Year;
                 string fechaF = FechaFinalizacion.Value.Month + "-" + FechaFinalizacion.Value.Day + "-" + FechaFinalizacion.Value.Year;
-                SqlCommand comando = new SqlCommand("update Empleados set IdCargo = "+cargo+", IdContrato = "+contrato+" , Usuario = '"+usuario+"' , ClaveAcceso = '"+pass+ "' ,  InicioContrato = '"+fecha+"', FinalizaContrato = '"+fechaF+"' from Empleados inner join Personas on Empleados.IdPersona = Personas.IdPersona where Personas.NumIdentidad = '"+documento+"'", conectarbd.abrirBD());
+                SqlCommand comando = new SqlCommand("update Empleados set IdCargo = "+cargo+", IdContrato = "+contrato+" , Usuario = '"+usuario+"' ,  InicioContrato = '"+fecha+"', FinalizaContrato = '"+fechaF+"' from Empleados inner join Personas on Empleados.IdPersona = Personas.IdPersona where Personas.NumIdentidad = '"+documento+"'", conectarbd.abrirBD());
                 int cantidad = comando.ExecuteNonQuery();
                 if (cantidad == 1)
                 {
@@ -514,22 +521,22 @@ namespace ProyectoBD1.Clases
                 {
                     if(cbContrato.Text == "Permanente")
                     {
-                        actualizarEmpleado(txtDocumento1.Text, txtUser.Text, txtPass.Text, 1, 1);
+                        actualizarEmpleado(txtDocumento1.Text, txtUser.Text, 1, 1);
                     }
                     else
                     {
-                        actualizarEmpleado(txtDocumento1.Text, txtUser.Text, txtPass.Text, 1, 2);
+                        actualizarEmpleado(txtDocumento1.Text, txtUser.Text, 1, 2);
                     }
                 }
                 else
                 {
                     if (cbContrato.Text == "Permanente")
                     {
-                        actualizarEmpleado(txtDocumento1.Text, txtUser.Text, txtPass.Text,2,1);
+                        actualizarEmpleado(txtDocumento1.Text, txtUser.Text,2,1);
                     }
                     else
                     {
-                        actualizarEmpleado(txtDocumento1.Text, txtUser.Text, txtPass.Text, 2, 2);
+                        actualizarEmpleado(txtDocumento1.Text, txtUser.Text, 2, 2);
                     }
                 }
             }
@@ -544,7 +551,7 @@ namespace ProyectoBD1.Clases
             txtA.Text = "";
             txtA2.Text = "";
             txtUser.Text = "";
-            txtPass.Text = "";
+            //txtPass.Text = "";
             cbCargo.Text = "";
             cbContrato.Text = "";
         }

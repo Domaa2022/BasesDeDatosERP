@@ -36,11 +36,13 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnConsulta = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtPass = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.FechaFinalizacion = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.FechaInicio = new System.Windows.Forms.DateTimePicker();
             this.cbContrato = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -63,10 +65,6 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.dgvEmpleado = new System.Windows.Forms.DataGridView();
             this.btnInsertar = new System.Windows.Forms.Button();
-            this.FechaInicio = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.FechaFinalizacion = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.txtIdentidadInsert.SuspendLayout();
@@ -171,9 +169,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.txtPass);
             this.groupBox3.Controls.Add(this.txtUser);
-            this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.groupBox3.Location = new System.Drawing.Point(5, 322);
@@ -185,15 +181,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Acceso";
             // 
-            // txtPass
-            // 
-            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Location = new System.Drawing.Point(347, 22);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(145, 23);
-            this.txtPass.TabIndex = 40;
-            // 
             // txtUser
             // 
             this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,17 +189,6 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(145, 23);
             this.txtUser.TabIndex = 39;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(270, 27);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 15);
-            this.label12.TabIndex = 37;
-            this.label12.Text = "Contraseña:";
             // 
             // label11
             // 
@@ -242,6 +218,44 @@
             this.groupBox2.TabIndex = 50;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contrato";
+            // 
+            // FechaFinalizacion
+            // 
+            this.FechaFinalizacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.FechaFinalizacion.Location = new System.Drawing.Point(530, 27);
+            this.FechaFinalizacion.Name = "FechaFinalizacion";
+            this.FechaFinalizacion.Size = new System.Drawing.Size(99, 20);
+            this.FechaFinalizacion.TabIndex = 44;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(431, 29);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 15);
+            this.label4.TabIndex = 43;
+            this.label4.Text = "Fecha Finalizacion:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(251, 29);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 15);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Fecha Inicio:";
+            // 
+            // FechaInicio
+            // 
+            this.FechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.FechaInicio.Location = new System.Drawing.Point(324, 27);
+            this.FechaInicio.Name = "FechaInicio";
+            this.FechaInicio.Size = new System.Drawing.Size(100, 20);
+            this.FechaInicio.TabIndex = 41;
             // 
             // cbContrato
             // 
@@ -493,44 +507,6 @@
             this.btnInsertar.UseVisualStyleBackColor = false;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
-            // FechaInicio
-            // 
-            this.FechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.FechaInicio.Location = new System.Drawing.Point(324, 27);
-            this.FechaInicio.Name = "FechaInicio";
-            this.FechaInicio.Size = new System.Drawing.Size(100, 20);
-            this.FechaInicio.TabIndex = 41;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(251, 29);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 15);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "Fecha Inicio:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(431, 29);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 15);
-            this.label4.TabIndex = 43;
-            this.label4.Text = "Fecha Finalizacion:";
-            // 
-            // FechaFinalizacion
-            // 
-            this.FechaFinalizacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.FechaFinalizacion.Location = new System.Drawing.Point(530, 27);
-            this.FechaFinalizacion.Name = "FechaFinalizacion";
-            this.FechaFinalizacion.Size = new System.Drawing.Size(99, 20);
-            this.FechaFinalizacion.TabIndex = 44;
-            // 
             // Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -570,9 +546,7 @@
         private System.Windows.Forms.TabControl txtIdentidadInsert;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.TextBox txtUser;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cbContrato;
