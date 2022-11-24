@@ -23,7 +23,7 @@ namespace ProyectoBD1.Clases
             Conexion conexionbd = new Conexion();
             try
             {
-                
+
                 SqlCommand comando = new SqlCommand("select Empleados.IdSucursal, Empleados.Usuario, Empleados.ClaveAcceso , Permisos.Nombre, Empleados.Estado from Empleados inner join Cargos on Empleados.IdCargo = Cargos.IdCargo inner join Permisos on Cargos.idPermiso = Permisos.IdPermiso Where Empleados.IdSucursal = @sucursal and Empleados.Usuario = @usuario and Empleados.ClaveAcceso = @pas ", conexionbd.abrirBD());
                 comando.Parameters.AddWithValue("sucursal", sucursal);
                 comando.Parameters.AddWithValue("usuario", usuario);
@@ -32,45 +32,56 @@ namespace ProyectoBD1.Clases
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
 
-                if(dt.Rows.Count == 1)
-                {
-                    if(   dt.Rows[0][4].ToString() == "True"  ){
-                        if (dt.Rows[0][3].ToString() == "Administrador")
+
+             
+                    if (dt.Rows.Count == 1)
+                    {
+                        if (dt.Rows[0][4].ToString() == "True")
                         {
-                            MessageBox.Show("Bienvenido Administrador", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            MenuAdmin admin1 = new MenuAdmin();
-                            admin1.lbSucursalP.Text = lbSucursal.Text;
-                            admin1.Show();
-                            this.Close();
+
+                            if (dt.Rows[0][3].ToString() == "Administrador")
+                            {
+
+
+                                MessageBox.Show("Bienvenido Administrador", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MenuAdmin admin1 = new MenuAdmin();
+                                admin1.lbSucursalP.Text = lbSucursal.Text;
+                                admin1.Show();
+                                this.Close();
+
+                            }
+                            else if (dt.Rows[0][3].ToString() == "Cajero")
+                            {
+                                MessageBox.Show("Bienvenido Cajero", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MenuCajero cajero1 = new MenuCajero();
+                                cajero1.Show();
+                                this.Close();
+                            }
+
+
                         }
-                        else if (dt.Rows[0][3].ToString() == "Cajero")
+                        else
                         {
-                            MessageBox.Show("Bienvenido Cajero", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            MenuCajero cajero1 = new MenuCajero();
-                            cajero1.Show();
-                            this.Close();
+                            MessageBox.Show("Empleado no activo");
                         }
+
 
                     }
                     else
                     {
-                        MessageBox.Show("Empleado no activo");
+                        MessageBox.Show("Usuario o Contraseña Incorrecta", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtNombre.Text = "";
+                        txtcontraseña.Text = "";
+                        txtNombre.Focus();
+
+
                     }
-                   
-                    
-                }
-                else
-                {
-                    MessageBox.Show("Usuario o Contraseña Incorrecta", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtNombre.Text = "";
-                    txtcontraseña.Text = "";
-                    txtNombre.Focus();
 
-                    
                 }
+            
 
-            }
-            catch(Exception e)
+
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -78,14 +89,24 @@ namespace ProyectoBD1.Clases
             {
                 conexionbd.cerrar();
             }
-            
-        }
+
+    }
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-          
-            login(lbSucursal.Text , txtNombre.Text, txtcontraseña.Text);
-            
+            //Console.Write("CONTRA: " + txtcontraseña.Text);
+            if (txtcontraseña.Text == "1234")
+            {
+                this.Close();
+                NewPass n1 = new NewPass();
+                n1.Show();
+             
+               
+            }
+            else
+            {
+                login(lbSucursal.Text, txtNombre.Text, txtcontraseña.Text);
+            }
 
         }
 
