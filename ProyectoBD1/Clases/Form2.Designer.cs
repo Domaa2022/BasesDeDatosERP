@@ -63,6 +63,7 @@
             this.lbSucursal.Size = new System.Drawing.Size(52, 16);
             this.lbSucursal.TabIndex = 2;
             this.lbSucursal.Text = "label2";
+            this.lbSucursal.Click += new System.EventHandler(this.lbSucursal_Click);
             // 
             // label2
             // 

@@ -110,5 +110,10 @@ namespace ProyectoBD1.Clases
         {
             this.Close();
         }
+
+        private void lbSucursal_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
