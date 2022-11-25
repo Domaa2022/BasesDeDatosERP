@@ -555,5 +555,10 @@ namespace ProyectoBD1.Clases
             cbCargo.Text = "";
             cbContrato.Text = "";
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
