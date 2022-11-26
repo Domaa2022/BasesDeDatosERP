@@ -24,5 +24,10 @@ namespace ProyectoBD1.Clases
                 this.Close();
             }
         }
+
+        private void gpbxPersonal_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
