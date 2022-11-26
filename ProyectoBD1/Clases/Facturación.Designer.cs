@@ -58,6 +58,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.Calcular = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -116,6 +119,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.Calcular);
+            this.tabPage1.Controls.Add(this.label13);
+            this.tabPage1.Controls.Add(this.richTextBox1);
             this.tabPage1.Controls.Add(this.dateTimePicker1);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.button1);
@@ -175,9 +181,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 253);
+            this.dataGridView1.Location = new System.Drawing.Point(434, 253);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(887, 267);
+            this.dataGridView1.Size = new System.Drawing.Size(465, 267);
             this.dataGridView1.TabIndex = 0;
             // 
             // comboBox1
@@ -355,7 +361,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.label11.Location = new System.Drawing.Point(288, 119);
+            this.label11.Location = new System.Drawing.Point(313, 95);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 14);
             this.label11.TabIndex = 13;
@@ -365,7 +371,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 14;
-            this.listBox1.Location = new System.Drawing.Point(291, 150);
+            this.listBox1.Location = new System.Drawing.Point(308, 119);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 88);
             this.listBox1.TabIndex = 14;
@@ -399,6 +405,37 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 17;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(23, 343);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(405, 96);
+            this.richTextBox1.TabIndex = 18;
+            this.richTextBox1.Text = "";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.label13.Location = new System.Drawing.Point(159, 311);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(54, 14);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "Detalle";
+            // 
+            // Calcular
+            // 
+            this.Calcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Calcular.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calcular.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.Calcular.Location = new System.Drawing.Point(237, 214);
+            this.Calcular.Name = "Calcular";
+            this.Calcular.Size = new System.Drawing.Size(157, 23);
+            this.Calcular.TabIndex = 20;
+            this.Calcular.Text = "Calcular";
+            this.Calcular.UseVisualStyleBackColor = true;
             // 
             // Facturación
             // 
@@ -457,5 +494,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button Calcular;
     }
 }

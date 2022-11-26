@@ -186,6 +186,21 @@
   <ItemGroup>
     <None Include="Resources\Fondo de Pantalla%28Un solo fondo%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personal 32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventario 32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\facturacion-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proveedores 32x32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

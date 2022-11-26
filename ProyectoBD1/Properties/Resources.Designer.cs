@@ -63,6 +63,26 @@ namespace ProyectoBD1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cliente_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("cliente-32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap facturacion_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("facturacion-32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Fondo_de_Pantalla_Un_solo_fondo_ {
             get {
                 object obj = ResourceManager.GetObject("Fondo de Pantalla(Un solo fondo)", resourceCulture);
@@ -73,9 +93,39 @@ namespace ProyectoBD1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap inventario_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("inventario 32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo {
             get {
                 object obj = ResourceManager.GetObject("Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap personal_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("personal 32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap proveedores_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("proveedores 32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
