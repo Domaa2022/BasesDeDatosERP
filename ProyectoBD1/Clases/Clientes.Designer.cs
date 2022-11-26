@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnconsultar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
             this.gpbxPersonal = new System.Windows.Forms.GroupBox();
@@ -50,6 +51,7 @@
             this.lblId = new System.Windows.Forms.Label();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvcorreo = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.eliminar = new System.Windows.Forms.Button();
             this.insertar = new System.Windows.Forms.Button();
@@ -61,17 +63,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dgvcorreo = new System.Windows.Forms.DataGridView();
-            this.btnconsultar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gpbxPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvcorreo)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgtelefono)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvcorreo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -117,7 +117,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 45);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(915, 467);
+            this.tabControl1.Size = new System.Drawing.Size(915, 555);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -130,10 +130,24 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 23);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(907, 440);
+            this.tabPage1.Size = new System.Drawing.Size(907, 528);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Gestión Clientes";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnconsultar
+            // 
+            this.btnconsultar.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnconsultar.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnconsultar.ForeColor = System.Drawing.Color.White;
+            this.btnconsultar.Location = new System.Drawing.Point(331, 374);
+            this.btnconsultar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnconsultar.Name = "btnconsultar";
+            this.btnconsultar.Size = new System.Drawing.Size(141, 37);
+            this.btnconsultar.TabIndex = 56;
+            this.btnconsultar.Text = "Consultar";
+            this.btnconsultar.UseVisualStyleBackColor = false;
+            this.btnconsultar.Click += new System.EventHandler(this.btnconsultar_Click);
             // 
             // btnActualizar
             // 
@@ -332,6 +346,16 @@
             this.tabPage2.Text = "Ver Clientes";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // dgvcorreo
+            // 
+            this.dgvcorreo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvcorreo.Location = new System.Drawing.Point(7, 117);
+            this.dgvcorreo.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvcorreo.Name = "dgvcorreo";
+            this.dgvcorreo.RowTemplate.Height = 28;
+            this.dgvcorreo.Size = new System.Drawing.Size(428, 321);
+            this.dgvcorreo.TabIndex = 58;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.eliminar);
@@ -454,35 +478,11 @@
             this.textBox1.Size = new System.Drawing.Size(227, 23);
             this.textBox1.TabIndex = 0;
             // 
-            // dgvcorreo
-            // 
-            this.dgvcorreo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvcorreo.Location = new System.Drawing.Point(7, 117);
-            this.dgvcorreo.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvcorreo.Name = "dgvcorreo";
-            this.dgvcorreo.RowTemplate.Height = 28;
-            this.dgvcorreo.Size = new System.Drawing.Size(428, 321);
-            this.dgvcorreo.TabIndex = 58;
-            // 
-            // btnconsultar
-            // 
-            this.btnconsultar.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnconsultar.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnconsultar.ForeColor = System.Drawing.Color.White;
-            this.btnconsultar.Location = new System.Drawing.Point(331, 374);
-            this.btnconsultar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnconsultar.Name = "btnconsultar";
-            this.btnconsultar.Size = new System.Drawing.Size(141, 37);
-            this.btnconsultar.TabIndex = 56;
-            this.btnconsultar.Text = "Consultar";
-            this.btnconsultar.UseVisualStyleBackColor = false;
-            this.btnconsultar.Click += new System.EventHandler(this.btnconsultar_Click);
-            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 512);
+            this.ClientSize = new System.Drawing.Size(915, 600);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -499,10 +499,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvcorreo)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgtelefono)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvcorreo)).EndInit();
             this.ResumeLayout(false);
 
         }

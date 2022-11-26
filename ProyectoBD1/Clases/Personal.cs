@@ -76,6 +76,7 @@ namespace ProyectoBD1.Clases
             llenarcargo();
             llenarContrato();
 
+
             
         }
 
@@ -179,6 +180,7 @@ namespace ProyectoBD1.Clases
             while (cargo.Read())
             {
                 cbCargo.Items.Add(cargo["Nombre"].ToString());
+                cbCargo.SelectedIndex = 0;
             }
             conexionbd.cerrar();
         }
@@ -195,7 +197,8 @@ namespace ProyectoBD1.Clases
             while (contrato.Read())
             {
                 cbContrato.Items.Add(contrato["NombreContrato"].ToString());
-                
+                cbContrato.SelectedIndex = 0;
+
             }
             conexionbd.cerrar();
         }
@@ -557,6 +560,11 @@ namespace ProyectoBD1.Clases
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cbCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

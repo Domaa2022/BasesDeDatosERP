@@ -309,8 +309,9 @@
             this.cbCargo.Location = new System.Drawing.Point(74, 30);
             this.cbCargo.Margin = new System.Windows.Forms.Padding(2);
             this.cbCargo.Name = "cbCargo";
-            this.cbCargo.Size = new System.Drawing.Size(93, 22);
+            this.cbCargo.Size = new System.Drawing.Size(120, 22);
             this.cbCargo.TabIndex = 41;
+            this.cbCargo.SelectedIndexChanged += new System.EventHandler(this.cbCargo_SelectedIndexChanged);
             // 
             // label10
             // 
