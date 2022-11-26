@@ -123,9 +123,29 @@ namespace ProyectoBD1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap producto_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("producto-32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap proveedores_32x32 {
             get {
                 object obj = ResourceManager.GetObject("proveedores 32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ventas_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("ventas-32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
