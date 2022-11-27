@@ -100,6 +100,8 @@ namespace ProyectoBD1.Clases
             if (ValidaVentana("Facturación") == false)
             {
                 Facturación f1 = new Facturación();
+                f1.label14su.Text = lbSucursalP.Text;
+                f1.UserEmpleado.Text = user.Text;
                 f1.MdiParent = this;
                 f1.Show();
             }

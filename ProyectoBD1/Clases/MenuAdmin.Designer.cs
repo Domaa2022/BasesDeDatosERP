@@ -35,12 +35,12 @@
             this.lbSucursalP = new System.Windows.Forms.Label();
             this.user = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnPersonal = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -134,15 +134,6 @@
             this.label3.Size = new System.Drawing.Size(81, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Usuario:";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(220, 123);
-            this.panel3.TabIndex = 2;
             // 
             // button4
             // 
@@ -239,6 +230,15 @@
             this.btnPersonal.UseVisualStyleBackColor = false;
             this.btnPersonal.Click += new System.EventHandler(this.btnPersonal_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(220, 123);
+            this.panel3.TabIndex = 2;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ProyectoBD1.Properties.Resources.Logo;
@@ -283,10 +283,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label user;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Label lbSucursalP;
+        public System.Windows.Forms.Label user;
     }
 }

@@ -63,7 +63,7 @@ namespace ProyectoBD1.Clases
             try
             {
 
-                SqlCommand comando = new SqlCommand("select Ventas.IdVenta, Productos.Modelo, Ventas.Cantidad, Ventas.Fecha, Ventas.CostoTotal from Ventas inner join Productos on Productos.IdProducto = Ventas.IdProducto ", conexionbd.abrirBD());
+                SqlCommand comando = new SqlCommand("select Ventas.IdVenta, Productos.Modelo, Ventas.Cantidad,Productos.Precio, Ventas.Fecha from Ventas inner join Productos on Productos.IdProducto = Ventas.IdProducto ", conexionbd.abrirBD());
                 SqlDataReader dr = comando.ExecuteReader();
                 DataTable dt = new DataTable();
                 dt.Load(dr);

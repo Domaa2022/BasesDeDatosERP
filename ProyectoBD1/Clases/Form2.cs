@@ -53,6 +53,7 @@ namespace ProyectoBD1.Clases
 
                                 MessageBox.Show("Bienvenido Administrador", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 MenuAdmin admin1 = new MenuAdmin();
+                                admin1.user.Text = txtNombre.Text;
                                 admin1.lbSucursalP.Text = lbSucursal.Text;
                                 admin1.Show();
                                 this.Close();
