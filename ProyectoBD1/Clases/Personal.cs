@@ -568,5 +568,38 @@ namespace ProyectoBD1.Clases
         {
 
         }
+
+        //RESTABLECER CONTRASEÑA
+
+        private void restablecerContraseña(string documento)
+        {
+            Conexion conectarbd = new Conexion();
+            SqlCommand comando = new SqlCommand("update Empleados set ClaveAcceso = ENCRYPTBYPASSPHRASE('password', '1234') from Empleados inner join Personas on Empleados.IdPersona = Personas.IdPersona  where Personas.NumIdentidad = '" + documento + " ' ",conectarbd.abrirBD());
+            int cantidad = comando.ExecuteNonQuery();
+            conectarbd.cerrar();
+            if(cantidad == 1)
+            {
+                MessageBox.Show("Contraseña Restablecida");
+                consultado = false;
+
+            }
+            else
+            {
+                MessageBox.Show("No se encontro el usuario");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (consultado == false)
+            {
+                MessageBox.Show("debe consultar antes de actualizar");
+            }
+            else
+            {
+                restablecerContraseña(txtDocumento1.Text);
+            }
+
+        }
     }
 }

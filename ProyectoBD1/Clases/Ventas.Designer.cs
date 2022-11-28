@@ -80,6 +80,7 @@
             this.cbTipoDoc = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtVenta = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -91,7 +92,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.txtVenta = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -180,6 +180,7 @@
             this.btnFactura.TabIndex = 34;
             this.btnFactura.Text = "Crear Factura";
             this.btnFactura.UseVisualStyleBackColor = true;
+            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
             // 
             // groupBox5
             // 
@@ -323,6 +324,7 @@
             this.btnFinalizarCom.TabIndex = 32;
             this.btnFinalizarCom.Text = "Finalizar Compra";
             this.btnFinalizarCom.UseVisualStyleBackColor = true;
+            this.btnFinalizarCom.Click += new System.EventHandler(this.btnFinalizarCom_Click);
             // 
             // btnAgregar
             // 
@@ -335,6 +337,7 @@
             this.btnAgregar.TabIndex = 31;
             this.btnAgregar.Text = "Agregar Producto";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // dgvDetalles
             // 
@@ -649,6 +652,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Historial de Ventas";
             // 
+            // txtVenta
+            // 
+            this.txtVenta.Location = new System.Drawing.Point(120, 77);
+            this.txtVenta.Name = "txtVenta";
+            this.txtVenta.Size = new System.Drawing.Size(138, 20);
+            this.txtVenta.TabIndex = 64;
+            // 
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.DarkSlateBlue;
@@ -765,13 +775,6 @@
             this.label26.Size = new System.Drawing.Size(89, 14);
             this.label26.TabIndex = 0;
             this.label26.Text = "Cosmo Autos";
-            // 
-            // txtVenta
-            // 
-            this.txtVenta.Location = new System.Drawing.Point(120, 77);
-            this.txtVenta.Name = "txtVenta";
-            this.txtVenta.Size = new System.Drawing.Size(138, 20);
-            this.txtVenta.TabIndex = 64;
             // 
             // Ventas
             // 
