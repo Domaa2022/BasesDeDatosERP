@@ -45,6 +45,7 @@ namespace ProyectoBD1.Clases
             if (ValidaVentana("Ventas") == false)
             {
                 Ventas v1 = new Ventas();
+                v1.label14su.Text = lbSucursalP.Text;
                 v1.MdiParent = this;
                 v1.Show();
             }

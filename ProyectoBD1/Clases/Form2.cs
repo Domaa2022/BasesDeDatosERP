@@ -64,6 +64,7 @@ namespace ProyectoBD1.Clases
                                 MessageBox.Show("Bienvenido Cajero", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 MenuCajero cajero1 = new MenuCajero();
                                 cajero1.user.Text = txtNombre.Text;
+                                cajero1.lbSucursalP.Text = lbSucursal.Text;
                                 cajero1.Show();
                                 this.Close();
                             }
@@ -114,6 +115,11 @@ namespace ProyectoBD1.Clases
         }
 
         private void lbSucursal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
         {
 
         }

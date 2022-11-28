@@ -24,6 +24,212 @@ namespace ProyectoBD1.Clases
             
         }
 
+        public static DataTable listarFacturas()
+        {
+            Conexion conexionbd = new Conexion();
+            try
+            {
+
+                SqlCommand comando = new SqlCommand("select * from Facturas", conexionbd.abrirBD());
+                SqlDataReader dr = comando.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                return dt;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                conexionbd.cerrar();
+
+            }
+
+        }
+
+        public static DataTable listarProductosId(int id)
+        {
+            Conexion conexionbd = new Conexion();
+            try
+            {
+
+                //int id;
+                //id = Convert.ToInt32(txt.Text);
+                SqlCommand comando = new SqlCommand("select Productos.IdProducto, Productos.Marca, Productos.Modelo,Productos.Color,Productos.Agno,Productos.Precio,Productos.Estado , SUM(Inventarios.Existencias * TipoMovimientos.Factor) Cantidad from Productos   inner join  Inventarios on Inventarios.IdProducto = Productos.IdProducto inner join TipoMovimientos on TipoMovimientos.IdTipo = Inventarios.IdTipo where Productos.Estado = 1 and Productos.IdProducto = " + id + " group by Productos.IdProducto, Productos.Marca, Productos.Modelo, Productos.Color, Productos.Agno, Productos.Precio, Productos.Estado", conexionbd.abrirBD());
+                SqlDataReader dr = comando.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                return dt;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                conexionbd.cerrar();
+
+            }
+
+        }
+        public static DataTable listarFacturasIdCliente(int id)
+        {
+            Conexion conexionbd = new Conexion();
+            try
+            {
+
+                //int id;
+                //id = Convert.ToInt32(txt.Text);
+                SqlCommand comando = new SqlCommand("select * from Facturas where  Facturas.IdCliente = " + id + "", conexionbd.abrirBD());
+                SqlDataReader dr = comando.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                return dt;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                conexionbd.cerrar();
+
+            }
+
+        }
+
+        public static DataTable listarFacturasIdFacturas(int id)
+        {
+            Conexion conexionbd = new Conexion();
+            try
+            {
+
+                //int id;
+                //id = Convert.ToInt32(txt.Text);
+                SqlCommand comando = new SqlCommand("select * from Facturas where  Facturas.IdFactura = " + id + "", conexionbd.abrirBD());
+                SqlDataReader dr = comando.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                return dt;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                conexionbd.cerrar();
+
+            }
+
+        }
+
+        public static DataTable listarFacturasIdEmpleado(int id)
+        {
+            Conexion conexionbd = new Conexion();
+            try
+            {
+
+                //int id;
+                //id = Convert.ToInt32(txt.Text);
+                SqlCommand comando = new SqlCommand("select * from Facturas where  Facturas.IdEmpleado = " + id + "", conexionbd.abrirBD());
+                SqlDataReader dr = comando.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                return dt;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                conexionbd.cerrar();
+
+            }
+
+        }
+
+        public void llenarGridFactura()
+        {
+            DataTable datos2 = listarFacturas();
+
+
+            if (datos2 == null)
+            {
+                MessageBox.Show("No se logro acceder a los datos");
+            }
+            else
+            {
+
+                dgvFacturas.DataSource = datos2.DefaultView;
+
+
+            }
+        }
+
+
+        public void llenarGridIdCliente()
+        {
+            DataTable datos3 = listarFacturasIdCliente(Int32.Parse(txtBuscarFactura.Text));
+
+
+            if (datos3 == null)
+            {
+                MessageBox.Show("No se logro acceder a los datos");
+            }
+            else
+            {
+
+                dgvFacturas.DataSource = datos3.DefaultView;
+
+
+            }
+        }
+
+        public void llenarGridIdEmpleado()
+        {
+            DataTable datos3 = listarFacturasIdEmpleado(Int32.Parse(txtBuscarFactura.Text));
+
+
+            if (datos3 == null)
+            {
+                MessageBox.Show("No se logro acceder a los datos");
+            }
+            else
+            {
+
+                dgvFacturas.DataSource = datos3.DefaultView;
+
+
+            }
+        }
+
+        public void llenarGridIdFactura()
+        {
+            DataTable datos3 = listarFacturasIdFacturas(Int32.Parse(txtBuscarFactura.Text));
+
+
+            if (datos3 == null)
+            {
+                MessageBox.Show("No se logro acceder a los datos");
+            }
+            else
+            {
+
+                dgvFacturas.DataSource = datos3.DefaultView;
+
+
+            }
+        }
+
+
         private void label2_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Está seguro que desea cerrar la ventana Facturación?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -267,6 +473,8 @@ namespace ProyectoBD1.Clases
             llenarDocumentoTipo();
             llenarMetodoDePago();
             llenarProveedor();
+            llenarGridFactura();
+           
 
         }
         public void llenarProveedor()
@@ -543,6 +751,48 @@ namespace ProyectoBD1.Clases
                 double precio = Convert.ToDouble(precioA.Text);
                 MuestraTotal(cantidad, precio);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtBuscarFactura.Text == "")
+            {
+                MessageBox.Show("No puede dejar este campo vacio");
+                txtBuscarFactura.Focus();
+            }
+            else if (rbId.Checked)
+            {
+
+
+                llenarGridIdCliente();
+                txtBuscarFactura.Text = "";
+                txtBuscarFactura.Focus();
+
+
+            }
+            else if (rbPrecio.Checked)
+            {
+                llenarGridIdFactura();
+                txtBuscarFactura.Text = "";
+                txtBuscarFactura.Focus();
+            }
+            else if (rbMarca.Checked)
+            {
+                llenarGridIdEmpleado();
+                txtBuscarFactura.Text = "";
+                txtBuscarFactura.Focus();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            llenarGridFactura();
+            txtBuscarFactura.Focus();
+        }
+
+        private void sucursal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

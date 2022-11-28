@@ -95,8 +95,16 @@
             this.label20 = new System.Windows.Forms.Label();
             this.cantidadN = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dgvFacturas = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.rbMarca = new System.Windows.Forms.RadioButton();
+            this.rbPrecio = new System.Windows.Forms.RadioButton();
+            this.rbId = new System.Windows.Forms.RadioButton();
+            this.txtBuscarFactura = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -107,6 +115,9 @@
             this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).BeginInit();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -147,7 +158,6 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -515,6 +525,7 @@
             this.sucursal.Size = new System.Drawing.Size(43, 14);
             this.sucursal.TabIndex = 4;
             this.sucursal.Text = "******";
+            this.sucursal.Click += new System.EventHandler(this.sucursal_Click);
             // 
             // label12
             // 
@@ -796,18 +807,14 @@
             this.label19.TabIndex = 11;
             this.label19.Text = "Cantidad";
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 23);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(907, 528);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Balance General";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.dgvFacturas);
+            this.tabPage4.Controls.Add(this.button2);
+            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.groupBox6);
+            this.tabPage4.Controls.Add(this.txtBuscarFactura);
+            this.tabPage4.Controls.Add(this.label18);
             this.tabPage4.Location = new System.Drawing.Point(4, 23);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -815,6 +822,105 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Facturas";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dgvFacturas
+            // 
+            this.dgvFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFacturas.Location = new System.Drawing.Point(26, 88);
+            this.dgvFacturas.Name = "dgvFacturas";
+            this.dgvFacturas.Size = new System.Drawing.Size(832, 333);
+            this.dgvFacturas.TabIndex = 11;
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.button2.Location = new System.Drawing.Point(780, 21);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 31);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Ver Todos";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.button1.Location = new System.Drawing.Point(682, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 31);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox6.Controls.Add(this.rbMarca);
+            this.groupBox6.Controls.Add(this.rbPrecio);
+            this.groupBox6.Controls.Add(this.rbId);
+            this.groupBox6.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.groupBox6.Location = new System.Drawing.Point(342, 8);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(318, 42);
+            this.groupBox6.TabIndex = 8;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Filtrar";
+            // 
+            // rbMarca
+            // 
+            this.rbMarca.AutoSize = true;
+            this.rbMarca.Location = new System.Drawing.Point(205, 19);
+            this.rbMarca.Name = "rbMarca";
+            this.rbMarca.Size = new System.Drawing.Size(105, 18);
+            this.rbMarca.TabIndex = 2;
+            this.rbMarca.Text = "Id Empleado";
+            this.rbMarca.UseVisualStyleBackColor = true;
+            // 
+            // rbPrecio
+            // 
+            this.rbPrecio.AutoSize = true;
+            this.rbPrecio.Location = new System.Drawing.Point(106, 17);
+            this.rbPrecio.Name = "rbPrecio";
+            this.rbPrecio.Size = new System.Drawing.Size(93, 18);
+            this.rbPrecio.TabIndex = 1;
+            this.rbPrecio.Text = "Id Factura";
+            this.rbPrecio.UseVisualStyleBackColor = true;
+            // 
+            // rbId
+            // 
+            this.rbId.AutoSize = true;
+            this.rbId.Checked = true;
+            this.rbId.Location = new System.Drawing.Point(18, 17);
+            this.rbId.Name = "rbId";
+            this.rbId.Size = new System.Drawing.Size(88, 18);
+            this.rbId.TabIndex = 0;
+            this.rbId.TabStop = true;
+            this.rbId.Text = "Id Cliente";
+            this.rbId.UseVisualStyleBackColor = true;
+            // 
+            // txtBuscarFactura
+            // 
+            this.txtBuscarFactura.Location = new System.Drawing.Point(92, 23);
+            this.txtBuscarFactura.Name = "txtBuscarFactura";
+            this.txtBuscarFactura.Size = new System.Drawing.Size(202, 20);
+            this.txtBuscarFactura.TabIndex = 7;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.label18.Location = new System.Drawing.Point(35, 28);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(51, 14);
+            this.label18.TabIndex = 6;
+            this.label18.Text = "Buscar";
             // 
             // Facturación
             // 
@@ -844,6 +950,11 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -908,7 +1019,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox cantidadN;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label13;
         public System.Windows.Forms.Label label14su;
@@ -919,5 +1029,14 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label totalCompra;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.DataGridView dgvFacturas;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.RadioButton rbMarca;
+        private System.Windows.Forms.RadioButton rbPrecio;
+        private System.Windows.Forms.RadioButton rbId;
+        private System.Windows.Forms.TextBox txtBuscarFactura;
+        private System.Windows.Forms.Label label18;
     }
 }

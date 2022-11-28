@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbSucursalP = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -109,6 +110,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lbSucursalP);
             this.panel3.Controls.Add(this.user);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -158,6 +160,17 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // lbSucursalP
+            // 
+            this.lbSucursalP.AutoSize = true;
+            this.lbSucursalP.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.lbSucursalP.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lbSucursalP.Location = new System.Drawing.Point(170, 16);
+            this.lbSucursalP.Name = "lbSucursalP";
+            this.lbSucursalP.Size = new System.Drawing.Size(35, 13);
+            this.lbSucursalP.TabIndex = 5;
+            this.lbSucursalP.Text = "label1";
+            // 
             // MenuCajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,5 +204,6 @@
         public System.Windows.Forms.Label user;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Label lbSucursalP;
     }
 }
