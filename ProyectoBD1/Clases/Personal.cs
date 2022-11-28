@@ -312,7 +312,7 @@ namespace ProyectoBD1.Clases
                         
 
 
-                        SqlCommand comando = new SqlCommand("exec RegistrarUsuario " + numPersona + ",1," + lbSucursal1.Text + ", 1 ,'" + txtUser.Text + "','1234',1,'" + fechaF + "','" + fechaF + "'", conectarbd.abrirBD());
+                        SqlCommand comando = new SqlCommand("exec RegistrarUsuario " + numPersona + ",1," + lbSucursal1.Text + ", 1 ,'" + txtUser.Text + "','1234',1,'" + fecha + "','" + fechaF + "'", conectarbd.abrirBD());
                         int cantidad = comando.ExecuteNonQuery();
                         if (cantidad == 1)
                         {
@@ -343,7 +343,7 @@ namespace ProyectoBD1.Clases
                     {
 
 
-                        SqlCommand comando = new SqlCommand("exec RegistrarUsuario " + numPersona + ",1," + lbSucursal1.Text + ", 2 ,'" + txtUser.Text + "','1234',1,'" + fechaF + "','" + fechaF + "'", conectarbd.abrirBD());
+                        SqlCommand comando = new SqlCommand("exec RegistrarUsuario " + numPersona + ",1," + lbSucursal1.Text + ", 2 ,'" + txtUser.Text + "','1234',1,'" + fecha + "','" + fechaF + "'", conectarbd.abrirBD());
                         int cantidad = comando.ExecuteNonQuery();
                         if (cantidad == 1)
                         {
@@ -372,7 +372,7 @@ namespace ProyectoBD1.Clases
                 {
                     try
                     {
-                        SqlCommand comando = new SqlCommand("exec RegistrarUsuario " + numPersona + ",2," + lbSucursal1.Text + ", 1 ,'" + txtUser.Text + "','1234',1,'" + fechaF + "','" + fechaF + "'", conectarbd.abrirBD());
+                        SqlCommand comando = new SqlCommand("exec RegistrarUsuario " + numPersona + ",2," + lbSucursal1.Text + ", 1 ,'" + txtUser.Text + "','1234',1,'" + fecha + "','" + fechaF + "'", conectarbd.abrirBD());
                         int cantidad = comando.ExecuteNonQuery();
                         if (cantidad == 1)
                         {
@@ -398,7 +398,7 @@ namespace ProyectoBD1.Clases
                 {
                     try
                     {
-                        SqlCommand comando = new SqlCommand("exec RegistrarUsuario " + numPersona + ",2," + lbSucursal1.Text + ", 2 ,'" + txtUser.Text + "','1234',1,'" + fechaF + "','" + fechaF + "'", conectarbd.abrirBD());
+                        SqlCommand comando = new SqlCommand("exec RegistrarUsuario " + numPersona + ",2," + lbSucursal1.Text + ", 2 ,'" + txtUser.Text + "','1234',1,'" + fecha + "','" + fechaF + "'", conectarbd.abrirBD());
                         int cantidad = comando.ExecuteNonQuery();
                         if (cantidad == 1)
                         {
