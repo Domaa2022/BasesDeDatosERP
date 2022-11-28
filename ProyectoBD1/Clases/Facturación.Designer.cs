@@ -33,8 +33,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnFactura = new System.Windows.Forms.Button();
             this.dgvDetalles = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.totalCompra = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.lbSubtotal = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.importe = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -53,6 +58,8 @@
             this.txtIdPro = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dateFactura = new System.Windows.Forms.DateTimePicker();
+            this.UserEmpleado = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.cbMetodoPago = new System.Windows.Forms.ComboBox();
@@ -62,6 +69,8 @@
             this.sucursal = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label14su = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.NumeroFact = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -77,28 +86,17 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.idpro = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
+            this.TotalP = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.cbProveedor = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.cantidad = new System.Windows.Forms.TextBox();
+            this.cantidadN = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.precioN = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14su = new System.Windows.Forms.Label();
-            this.UserEmpleado = new System.Windows.Forms.Label();
-            this.dateFactura = new System.Windows.Forms.DateTimePicker();
-            this.btnFactura = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lbSubtotal = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.totalCompra = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -177,6 +175,19 @@
             this.tabPage1.Text = "Vender";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnFactura
+            // 
+            this.btnFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFactura.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFactura.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnFactura.Location = new System.Drawing.Point(72, 418);
+            this.btnFactura.Name = "btnFactura";
+            this.btnFactura.Size = new System.Drawing.Size(135, 23);
+            this.btnFactura.TabIndex = 27;
+            this.btnFactura.Text = "Crear Factura";
+            this.btnFactura.UseVisualStyleBackColor = true;
+            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
+            // 
             // dgvDetalles
             // 
             this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -207,6 +218,42 @@
             this.groupBox5.TabIndex = 25;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Detalles Compra";
+            // 
+            // totalCompra
+            // 
+            this.totalCompra.AutoSize = true;
+            this.totalCompra.Location = new System.Drawing.Point(68, 68);
+            this.totalCompra.Name = "totalCompra";
+            this.totalCompra.Size = new System.Drawing.Size(43, 14);
+            this.totalCompra.TabIndex = 36;
+            this.totalCompra.Text = "******";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(6, 68);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(42, 14);
+            this.label25.TabIndex = 35;
+            this.label25.Text = "Total";
+            // 
+            // lbSubtotal
+            // 
+            this.lbSubtotal.AutoSize = true;
+            this.lbSubtotal.Location = new System.Drawing.Point(68, 16);
+            this.lbSubtotal.Name = "lbSubtotal";
+            this.lbSubtotal.Size = new System.Drawing.Size(43, 14);
+            this.lbSubtotal.TabIndex = 34;
+            this.lbSubtotal.Text = "******";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(63, 14);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "Subtotal";
             // 
             // label33
             // 
@@ -393,6 +440,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Factura";
             // 
+            // dateFactura
+            // 
+            this.dateFactura.Location = new System.Drawing.Point(284, 71);
+            this.dateFactura.Name = "dateFactura";
+            this.dateFactura.Size = new System.Drawing.Size(200, 20);
+            this.dateFactura.TabIndex = 22;
+            // 
+            // UserEmpleado
+            // 
+            this.UserEmpleado.AutoSize = true;
+            this.UserEmpleado.Location = new System.Drawing.Point(105, 71);
+            this.UserEmpleado.Name = "UserEmpleado";
+            this.UserEmpleado.Size = new System.Drawing.Size(43, 14);
+            this.UserEmpleado.TabIndex = 21;
+            this.UserEmpleado.Text = "******";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -482,6 +545,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Numeración Factura";
             // 
+            // label14su
+            // 
+            this.label14su.AutoSize = true;
+            this.label14su.Location = new System.Drawing.Point(95, 26);
+            this.label14su.Name = "label14su";
+            this.label14su.Size = new System.Drawing.Size(53, 14);
+            this.label14su.TabIndex = 28;
+            this.label14su.Text = "label14";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(22, 26);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(74, 14);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "Sucursal : ";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -561,17 +642,15 @@
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.label26);
             this.groupBox1.Controls.Add(this.idpro);
-            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Controls.Add(this.TotalP);
             this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.cbProveedor);
             this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.cantidad);
+            this.groupBox1.Controls.Add(this.cantidadN);
             this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.precioN);
-            this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.groupBox1.Location = new System.Drawing.Point(227, 50);
@@ -585,12 +664,13 @@
             // 
             this.btnActualiza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualiza.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnActualiza.Location = new System.Drawing.Point(293, 194);
+            this.btnActualiza.Location = new System.Drawing.Point(293, 62);
             this.btnActualiza.Name = "btnActualiza";
             this.btnActualiza.Size = new System.Drawing.Size(95, 23);
             this.btnActualiza.TabIndex = 5;
             this.btnActualiza.Text = "Actualizar";
             this.btnActualiza.UseVisualStyleBackColor = true;
+            this.btnActualiza.Click += new System.EventHandler(this.btnActualiza_Click);
             // 
             // precioA
             // 
@@ -614,12 +694,13 @@
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.button3.Location = new System.Drawing.Point(243, 23);
+            this.button3.Location = new System.Drawing.Point(284, 19);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(104, 23);
             this.button3.TabIndex = 32;
             this.button3.Text = "Revisar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label26
             // 
@@ -637,19 +718,19 @@
             this.idpro.Size = new System.Drawing.Size(100, 20);
             this.idpro.TabIndex = 34;
             // 
-            // label24
+            // TotalP
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(315, 256);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(15, 14);
-            this.label24.TabIndex = 19;
-            this.label24.Text = "0";
+            this.TotalP.AutoSize = true;
+            this.TotalP.Location = new System.Drawing.Point(255, 237);
+            this.TotalP.Name = "TotalP";
+            this.TotalP.Size = new System.Drawing.Size(15, 14);
+            this.TotalP.TabIndex = 19;
+            this.TotalP.Text = "0";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(290, 256);
+            this.label23.Location = new System.Drawing.Point(230, 237);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(19, 14);
             this.label23.TabIndex = 18;
@@ -658,7 +739,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(187, 256);
+            this.label22.Location = new System.Drawing.Point(127, 237);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(96, 14);
             this.label22.TabIndex = 17;
@@ -667,7 +748,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(114, 198);
+            this.label21.Location = new System.Drawing.Point(189, 151);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(45, 14);
             this.label21.TabIndex = 16;
@@ -676,7 +757,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.CalendarForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.dateTimePicker2.Location = new System.Drawing.Point(3, 215);
+            this.dateTimePicker2.Location = new System.Drawing.Point(78, 168);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(265, 20);
             this.dateTimePicker2.TabIndex = 15;
@@ -684,7 +765,7 @@
             // cbProveedor
             // 
             this.cbProveedor.FormattingEnabled = true;
-            this.cbProveedor.Location = new System.Drawing.Point(76, 155);
+            this.cbProveedor.Location = new System.Drawing.Point(284, 112);
             this.cbProveedor.Name = "cbProveedor";
             this.cbProveedor.Size = new System.Drawing.Size(121, 22);
             this.cbProveedor.TabIndex = 14;
@@ -692,43 +773,28 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(0, 158);
+            this.label20.Location = new System.Drawing.Point(208, 115);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(73, 14);
             this.label20.TabIndex = 13;
             this.label20.Text = "Proveedor";
             // 
-            // cantidad
+            // cantidadN
             // 
-            this.cantidad.Location = new System.Drawing.Point(268, 112);
-            this.cantidad.Name = "cantidad";
-            this.cantidad.Size = new System.Drawing.Size(100, 20);
-            this.cantidad.TabIndex = 12;
+            this.cantidadN.Location = new System.Drawing.Point(89, 114);
+            this.cantidadN.Name = "cantidadN";
+            this.cantidadN.Size = new System.Drawing.Size(100, 20);
+            this.cantidadN.TabIndex = 12;
+            this.cantidadN.Leave += new System.EventHandler(this.cantidadN_Leave_1);
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(202, 118);
+            this.label19.Location = new System.Drawing.Point(23, 120);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(67, 14);
             this.label19.TabIndex = 11;
             this.label19.Text = "Cantidad";
-            // 
-            // precioN
-            // 
-            this.precioN.Location = new System.Drawing.Point(76, 112);
-            this.precioN.Name = "precioN";
-            this.precioN.Size = new System.Drawing.Size(100, 20);
-            this.precioN.TabIndex = 10;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(23, 115);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(47, 14);
-            this.label18.TabIndex = 5;
-            this.label18.Text = "Precio";
             // 
             // tabPage3
             // 
@@ -749,89 +815,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Facturas";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(22, 26);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(74, 14);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "Sucursal : ";
-            // 
-            // label14su
-            // 
-            this.label14su.AutoSize = true;
-            this.label14su.Location = new System.Drawing.Point(95, 26);
-            this.label14su.Name = "label14su";
-            this.label14su.Size = new System.Drawing.Size(53, 14);
-            this.label14su.TabIndex = 28;
-            this.label14su.Text = "label14";
-            // 
-            // UserEmpleado
-            // 
-            this.UserEmpleado.AutoSize = true;
-            this.UserEmpleado.Location = new System.Drawing.Point(105, 71);
-            this.UserEmpleado.Name = "UserEmpleado";
-            this.UserEmpleado.Size = new System.Drawing.Size(43, 14);
-            this.UserEmpleado.TabIndex = 21;
-            this.UserEmpleado.Text = "******";
-            // 
-            // dateFactura
-            // 
-            this.dateFactura.Location = new System.Drawing.Point(284, 71);
-            this.dateFactura.Name = "dateFactura";
-            this.dateFactura.Size = new System.Drawing.Size(200, 20);
-            this.dateFactura.TabIndex = 22;
-            // 
-            // btnFactura
-            // 
-            this.btnFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFactura.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFactura.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnFactura.Location = new System.Drawing.Point(72, 418);
-            this.btnFactura.Name = "btnFactura";
-            this.btnFactura.Size = new System.Drawing.Size(135, 23);
-            this.btnFactura.TabIndex = 27;
-            this.btnFactura.Text = "Crear Factura";
-            this.btnFactura.UseVisualStyleBackColor = true;
-            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 16);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 14);
-            this.label14.TabIndex = 33;
-            this.label14.Text = "Subtotal";
-            // 
-            // lbSubtotal
-            // 
-            this.lbSubtotal.AutoSize = true;
-            this.lbSubtotal.Location = new System.Drawing.Point(68, 16);
-            this.lbSubtotal.Name = "lbSubtotal";
-            this.lbSubtotal.Size = new System.Drawing.Size(43, 14);
-            this.lbSubtotal.TabIndex = 34;
-            this.lbSubtotal.Text = "******";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(6, 68);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(42, 14);
-            this.label25.TabIndex = 35;
-            this.label25.Text = "Total";
-            // 
-            // totalCompra
-            // 
-            this.totalCompra.AutoSize = true;
-            this.totalCompra.Location = new System.Drawing.Point(68, 68);
-            this.totalCompra.Name = "totalCompra";
-            this.totalCompra.Size = new System.Drawing.Size(43, 14);
-            this.totalCompra.TabIndex = 36;
-            this.totalCompra.Text = "******";
             // 
             // Facturación
             // 
@@ -916,17 +899,15 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox idpro;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label TotalP;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.ComboBox cbProveedor;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox cantidad;
+        private System.Windows.Forms.TextBox cantidadN;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox precioN;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label13;

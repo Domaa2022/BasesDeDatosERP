@@ -20,8 +20,8 @@ namespace ProyectoBD1.Clases
             
             btnActualiza.Enabled = false;
             cbProveedor.Enabled = false;
-            cantidad.Enabled = false;
-            precioN.Enabled = false;
+            cantidadN.Enabled = false;
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -43,8 +43,8 @@ namespace ProyectoBD1.Clases
 
             btnActualiza.Enabled = true;
             cbProveedor.Enabled = true;
-            cantidad.Enabled = true;
-            precioN.Enabled = true;
+            cantidadN.Enabled = true;
+            
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -81,6 +81,7 @@ namespace ProyectoBD1.Clases
             while (sucursal.Read())
             {
                 cbPuntoVenta.Items.Add(sucursal["NumeroPos"].ToString());
+                cbPuntoVenta.SelectedIndex = 0;
             
             }
 
@@ -95,7 +96,8 @@ namespace ProyectoBD1.Clases
             while (sucursal.Read())
             {
                cbTipoDoc.Items.Add(sucursal["Nombre"].ToString());
-               
+                cbTipoDoc.SelectedIndex = 0;
+
             }
 
             conexionbd.cerrar();
@@ -109,6 +111,7 @@ namespace ProyectoBD1.Clases
             while (sucursal.Read())
             {
                 cbMetodoPago.Items.Add(sucursal["Nombre"].ToString());
+                cbMetodoPago.SelectedIndex = 0;
 
             }
 
@@ -263,8 +266,80 @@ namespace ProyectoBD1.Clases
             llenarPuntosDeVenta();
             llenarDocumentoTipo();
             llenarMetodoDePago();
-           
+            llenarProveedor();
+
         }
+        public void llenarProveedor()
+        {
+            Conexion conexionbd = new Conexion();
+            SqlCommand comando = new SqlCommand("select * from Proveedores", conexionbd.abrirBD());
+            SqlDataReader contrato = comando.ExecuteReader();
+            while (contrato.Read())
+            {
+                cbProveedor.Items.Add(contrato["Nombre"].ToString());
+                cbProveedor.SelectedIndex = 0;
+
+            }
+            conexionbd.cerrar();
+        }
+        private void agregarExistencia(double costoTotal, int IdProveedor)
+        {
+            Conexion conectarbd = new Conexion();
+
+            try
+            {
+
+                DateTime fecha = DateTime.Now;
+                string fechaF = fecha.ToString("yyyy-MM-dd HH:mm:ss");
+
+
+                SqlCommand comando = new SqlCommand("INSERT INTO Compras VALUES('" + idpro.Text + "','" + IdProveedor + "','" + cantidadN.Text + "','" + fechaF + "' ,'" + costoTotal + "');", conectarbd.abrirBD());
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Exito");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                conectarbd.cerrar();
+            }
+        }
+
+        private int idProveedor(string proveedor)
+        {
+            Conexion conectarbd = new Conexion();
+
+            try
+            {
+
+                SqlCommand comando = new SqlCommand("select Proveedores.IdProveedor from Proveedores where Proveedores.Nombre = '" + proveedor + "' ", conectarbd.abrirBD());
+                SqlDataReader dr = comando.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                // return dt;
+
+
+                int idP = Convert.ToInt32(comando.ExecuteScalar());
+                // precioA.Text = dt.ToString();
+                return idP;
+
+
+
+            }
+            catch (Exception a)
+            {
+                return 0;
+            }
+            finally
+            {
+
+                conectarbd.cerrar();
+
+            }
+        }
+
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -377,6 +452,97 @@ namespace ProyectoBD1.Clases
             txtIdPro.Text = "";
             txtCantidad.Text = "";
             dgvDetalles.Columns.Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (idpro.Text != "")
+            {
+                Conexion conexionbd = new Conexion();
+                try
+                {
+
+                    SqlCommand comando = new SqlCommand("Select Productos.Precio from Productos where IdProducto = '" + idpro.Text + "';", conexionbd.abrirBD());
+                    SqlDataReader dr = comando.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(dr);
+                    // return dt;
+
+
+                    precioA.Text = Convert.ToString(comando.ExecuteScalar());
+                    // precioA.Text = dt.ToString();
+
+
+
+
+                }
+                catch (Exception a)
+                {
+                    // return null;
+
+                }
+                finally
+                {
+
+                    conexionbd.cerrar();
+
+                }
+                btnActualiza.Enabled = true;
+                cbProveedor.Enabled = true;
+                cantidadN.Enabled = true;
+                cantidadN.Focus();
+
+            }
+            else
+            {
+                MessageBox.Show("Error.");
+            }
+
+
+        }
+
+      
+
+
+        private void MuestraTotal(double cantidad, double precio)
+        {
+            double total = cantidad * precio;
+            TotalP.Text = Convert.ToString(total);
+        }
+
+        private void btnActualiza_Click(object sender, EventArgs e)
+        {
+            if (cantidadN.Text != "" && idpro.Text != "")
+            {
+                double cantidad = Convert.ToDouble(cantidadN.Text);
+                double precio = Convert.ToDouble(precioA.Text);
+                double total = cantidad * precio;
+
+                agregarExistencia(total, idProveedor(cbProveedor.Text));
+                cantidadN.Text = "";
+                idpro.Text = "";
+                btnActualiza.Enabled = false;
+                cbProveedor.Enabled = false;
+                cantidadN.Enabled = false;
+                precioA.Text = "0";
+                TotalP.Text = "0";
+                idpro.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Por favor rellene todos los campos");
+            }
+
+        }
+
+        private void cantidadN_Leave_1(object sender, EventArgs e)
+        {
+            if (cantidadN.Text != "")
+            {
+                double cantidad = Convert.ToDouble(cantidadN.Text);
+                double precio = Convert.ToDouble(precioA.Text);
+                MuestraTotal(cantidad, precio);
+            }
         }
     }
 }

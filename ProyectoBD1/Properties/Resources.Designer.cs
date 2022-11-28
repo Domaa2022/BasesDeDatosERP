@@ -93,6 +93,16 @@ namespace ProyectoBD1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Fondo_de_Pantalla_Varios_Elementos_ {
+            get {
+                object obj = ResourceManager.GetObject("Fondo de Pantalla(Varios Elementos)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap inventario_32x32 {
             get {
                 object obj = ResourceManager.GetObject("inventario 32x32", resourceCulture);

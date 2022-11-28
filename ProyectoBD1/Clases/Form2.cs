@@ -63,6 +63,7 @@ namespace ProyectoBD1.Clases
                             {
                                 MessageBox.Show("Bienvenido Cajero", "Acceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 MenuCajero cajero1 = new MenuCajero();
+                                cajero1.user.Text = txtNombre.Text;
                                 cajero1.Show();
                                 this.Close();
                             }

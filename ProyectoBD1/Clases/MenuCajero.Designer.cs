@@ -33,7 +33,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.user = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -109,7 +109,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.user);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 487);
@@ -117,16 +117,16 @@
             this.panel3.Size = new System.Drawing.Size(220, 74);
             this.panel3.TabIndex = 1;
             // 
-            // label3
+            // user
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Georgia", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(79, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 18);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "User X";
+            this.user.AutoSize = true;
+            this.user.Font = new System.Drawing.Font("Georgia", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.user.Location = new System.Drawing.Point(96, 47);
+            this.user.Name = "user";
+            this.user.Size = new System.Drawing.Size(28, 18);
+            this.user.TabIndex = 1;
+            this.user.Text = "....";
             // 
             // label2
             // 
@@ -163,7 +163,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BackgroundImage = global::ProyectoBD1.Properties.Resources.Fondo_de_Pantalla_Un_solo_fondo_;
+            this.BackgroundImage = global::ProyectoBD1.Properties.Resources.Fondo_de_Pantalla_Varios_Elementos_;
             this.ClientSize = new System.Drawing.Size(939, 561);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -188,7 +188,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label user;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
     }
