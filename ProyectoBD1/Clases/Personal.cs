@@ -16,6 +16,9 @@ namespace ProyectoBD1.Clases
         public Personal()
         {
             InitializeComponent();
+        
+            txtsueldoN.Enabled = false;
+            agregar.Enabled = false;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -75,9 +78,11 @@ namespace ProyectoBD1.Clases
             llenarGrid();
             llenarcargo();
             llenarContrato();
+            llenarGridSueldo();
 
 
-            
+
+
         }
 
         // CONSULTA DE EMPLEADOS Y CREACION DE MODELO DE PERSONA
@@ -600,6 +605,149 @@ namespace ProyectoBD1.Clases
                 restablecerContraseña(txtDocumento1.Text);
             }
 
+        }
+
+        public static DataTable buscarSueldo(string id)
+        {
+            Conexion conexionbd = new Conexion();
+            try
+            {
+
+                SqlCommand comando = new SqlCommand("Select * from Telefonos where IdCliente = '" + id + "';", conexionbd.abrirBD());
+                SqlDataReader dr = comando.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                return dt;
+
+
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+
+                conexionbd.cerrar();
+
+            }
+
+
+
+        }
+
+        public static DataTable listarSueldos(string id)
+        {
+            Conexion conexionbd = new Conexion();
+            try
+            {
+
+                SqlCommand comando = new SqlCommand("select * from Sueldos where Sueldos.IdSueldo = '" + id + "'", conexionbd.abrirBD());
+                SqlDataReader dr = comando.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                return dt;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                conexionbd.cerrar();
+
+            }
+
+
+        }
+
+        public void llenarGridSueldo()
+        {
+            DataTable datos = listarSueldos(txtId.Text);
+            if (datos == null)
+            {
+                MessageBox.Show("No se logro acceder a los datos");
+            }
+            else
+            {
+
+                dgvSueldo.DataSource = datos.DefaultView;
+            }
+        }
+
+        // public void llenarGridSueldo()
+        /*  {
+
+              DataTable datos3 = buscarSueldo(txtId.Text);
+              if (datos3 == null)
+              {
+                  MessageBox.Show("No se logro acceder a los datos");
+              }
+              else
+              {
+
+                  dgvSueldo.DataSource = datos3.DefaultView;
+              }
+          }*/
+
+        private void actualizarSueldo(double sueldo)
+        {
+            Conexion conectarbd = new Conexion();
+
+            try
+            {
+
+                SqlCommand comando = new SqlCommand("update Sueldos set Sueldos.Monto =" + sueldo + "  where Sueldos.IdSueldo = '" + txtId.Text + "'", conectarbd.abrirBD());
+                int cantidad = comando.ExecuteNonQuery();
+                if (cantidad == 1)
+                {
+                    MessageBox.Show("Sueldo actualizado correctamente");
+                    llenarGridSueldo();
+                   // eliminarRegistros();
+                    consultado = false;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontro el empleado");
+                   // eliminarRegistros();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                conectarbd.cerrar();
+            }
+        }
+
+
+
+        private void buscar_Click(object sender, EventArgs e)
+        {
+
+            if (txtId.Text != "")
+            {
+                llenarGridSueldo();
+
+
+                agregar.Enabled = true;
+                txtsueldoN.Enabled = true;
+
+            }
+            else
+            {
+                MessageBox.Show("No puede dejar este campo vacio");
+                txtId.Focus();
+            }
+        }
+
+        private void agregar_Click(object sender, EventArgs e)
+        {
+            actualizarSueldo(Convert.ToDouble( txtsueldoN.Text));
         }
     }
 }

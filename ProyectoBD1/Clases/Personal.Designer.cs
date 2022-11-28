@@ -34,6 +34,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtIdentidadInsert = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnConsulta = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtUser = new System.Windows.Forms.TextBox();
@@ -65,7 +66,15 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.dgvEmpleado = new System.Windows.Forms.DataGridView();
             this.btnInsertar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvSueldo = new System.Windows.Forms.DataGridView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.agregar = new System.Windows.Forms.Button();
+            this.txtsueldoN = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.buscar = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.txtIdentidadInsert.SuspendLayout();
@@ -75,6 +84,9 @@
             this.groupBox1.SuspendLayout();
             this.gpbxPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSueldo)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -126,6 +138,7 @@
             // txtIdentidadInsert
             // 
             this.txtIdentidadInsert.Controls.Add(this.tabPage1);
+            this.txtIdentidadInsert.Controls.Add(this.tabPage2);
             this.txtIdentidadInsert.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtIdentidadInsert.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdentidadInsert.Location = new System.Drawing.Point(0, 0);
@@ -155,6 +168,20 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Gestionar Empleados";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(702, 399);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(132, 37);
+            this.button1.TabIndex = 53;
+            this.button1.Text = "Restablecer Contraseña";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnConsulta
             // 
@@ -511,19 +538,109 @@
             this.btnInsertar.UseVisualStyleBackColor = false;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
-            // button1
+            // tabPage2
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(702, 399);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 37);
-            this.button1.TabIndex = 53;
-            this.button1.Text = "Restablecer Contraseña";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tabPage2.Controls.Add(this.dgvSueldo);
+            this.tabPage2.Controls.Add(this.groupBox4);
+            this.tabPage2.Controls.Add(this.buscar);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.txtId);
+            this.tabPage2.Location = new System.Drawing.Point(4, 23);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1017, 445);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Sueldos";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dgvSueldo
+            // 
+            this.dgvSueldo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSueldo.Location = new System.Drawing.Point(201, 122);
+            this.dgvSueldo.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvSueldo.Name = "dgvSueldo";
+            this.dgvSueldo.RowTemplate.Height = 28;
+            this.dgvSueldo.Size = new System.Drawing.Size(479, 321);
+            this.dgvSueldo.TabIndex = 63;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.agregar);
+            this.groupBox4.Controls.Add(this.txtsueldoN);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.groupBox4.Location = new System.Drawing.Point(454, 5);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Size = new System.Drawing.Size(389, 103);
+            this.groupBox4.TabIndex = 62;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Sueldo";
+            // 
+            // agregar
+            // 
+            this.agregar.Location = new System.Drawing.Point(167, 75);
+            this.agregar.Name = "agregar";
+            this.agregar.Size = new System.Drawing.Size(127, 23);
+            this.agregar.TabIndex = 36;
+            this.agregar.Text = "Actualizar";
+            this.agregar.UseVisualStyleBackColor = true;
+            this.agregar.Click += new System.EventHandler(this.agregar_Click);
+            // 
+            // txtsueldoN
+            // 
+            this.txtsueldoN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtsueldoN.Location = new System.Drawing.Point(106, 29);
+            this.txtsueldoN.Margin = new System.Windows.Forms.Padding(2);
+            this.txtsueldoN.Name = "txtsueldoN";
+            this.txtsueldoN.Size = new System.Drawing.Size(167, 23);
+            this.txtsueldoN.TabIndex = 27;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(10, 36);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 15);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Establecer Sueldo";
+            // 
+            // buscar
+            // 
+            this.buscar.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.buscar.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buscar.ForeColor = System.Drawing.Color.White;
+            this.buscar.Location = new System.Drawing.Point(277, 49);
+            this.buscar.Margin = new System.Windows.Forms.Padding(2);
+            this.buscar.Name = "buscar";
+            this.buscar.Size = new System.Drawing.Size(84, 22);
+            this.buscar.TabIndex = 61;
+            this.buscar.Text = "Buscar";
+            this.buscar.UseVisualStyleBackColor = false;
+            this.buscar.Click += new System.EventHandler(this.buscar_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.label7.Location = new System.Drawing.Point(23, 22);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 14);
+            this.label7.TabIndex = 60;
+            this.label7.Text = "Id Empleado";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(25, 49);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2);
+            this.txtId.Multiline = true;
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(227, 23);
+            this.txtId.TabIndex = 59;
             // 
             // Personal
             // 
@@ -551,6 +668,11 @@
             this.gpbxPersonal.ResumeLayout(false);
             this.gpbxPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSueldo)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -595,5 +717,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker FechaInicio;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView dgvSueldo;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button agregar;
+        private System.Windows.Forms.TextBox txtsueldoN;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button buscar;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtId;
     }
 }
