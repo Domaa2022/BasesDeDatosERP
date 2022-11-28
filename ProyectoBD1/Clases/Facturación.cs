@@ -435,7 +435,7 @@ namespace ProyectoBD1.Clases
                 string fechaFactura = fechaVenta.Value.Year + "-" + fechaVenta.Value.Month + "-" + fechaVenta.Value.Day + " " + fechaVenta.Value.Hour+":"+fechaVenta.Value.Minute+":"+fechaVenta.Value.Second;
                 SqlCommand comando2 = new SqlCommand("INSERT INTO Ventas VALUES ("+Int32.Parse(txtIdPro.Text)+","+idCliente+","+Int32.Parse(txtCantidad.Text)+",'"+fechaFactura+"')", conectarbd.abrirBD());
                 int cantidad = comando2.ExecuteNonQuery();
-                if(cantidad == 2)
+                if(cantidad >= 2)
                 {
                     conectarbd.cerrar();
                     SqlCommand comando3 = new SqlCommand("select * from Ventas where Ventas.IdCliente = " + idCliente + " and Ventas.Fecha = '"+fechaFactura+"' ", conectarbd.abrirBD());
